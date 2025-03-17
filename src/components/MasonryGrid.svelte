@@ -11,10 +11,10 @@
 	{#each imgs as image}
 		{#await image() then src}
 			{#if isImage(src)}
-				<img src={`${base}/${removeStaticDir(src)}`} alt="project images" />
+				<img src={`${removeStaticDir(src)}`} alt="project images" />
 			{:else if isVideo(src)}
 				<video playsInline={true} autoPlay={true} muted={true} loop={true}>
-					<source src={`${base}/${removeStaticDir(src)}`} type="video/mp4" />
+					<source src={`${removeStaticDir(src)}`} type="video/mp4" />
 				</video>
 			{/if}
 		{/await}
