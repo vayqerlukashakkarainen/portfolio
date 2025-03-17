@@ -9,8 +9,6 @@
 	$: allSame = false;
 </script>
 
-export const prerender = true;
-
 <div class="container center">
 	<div class="me">
 		<Me />
