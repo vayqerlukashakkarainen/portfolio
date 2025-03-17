@@ -1,6 +1,4 @@
 <script>
-	export const prerender = true;
-
 	import { projects } from '$lib/project';
 	import { allImagesSame, getRandomImage } from '$lib/images';
 	import Icon from '@iconify/svelte';
@@ -10,6 +8,8 @@
 
 	$: allSame = false;
 </script>
+
+export const prerender = true;
 
 <div class="container center">
 	<div class="me">

@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { projects } from '$lib/project';
+export const prerender = 'auto';
 
 /** @type {import('./$types').PageLoad} */
 export function load({ params }) {
