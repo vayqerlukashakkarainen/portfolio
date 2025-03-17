@@ -1,0 +1,141 @@
+:root {
+	--color-teal-900: #1b1b24;
+	--color-teal-700: #497171;
+	--color-teal-500: #639c89;
+	--color-dust-200: #bdb99c;
+	--color-sand-400: #e8a877;
+	--color-fire-300: #f55b4b;
+}
+
+body {
+	background-color: var(--color-teal-900);
+	font-family: 'Poppins', sans-serif;
+}
+
+.secondary {
+	font-size: 1.4rem;
+	color: #5a4c60;
+}
+
+h3,
+h2,
+h1 {
+	color: white;
+}
+h1.primary {
+	font-size: 4rem;
+}
+
+p {
+	color: rgb(217, 217, 217);
+}
+
+.container {
+	--padding-inline: 1rem;
+	--content-max-width: 900px;
+	--breakout-max-width: 1200px;
+
+	--breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+	display: grid;
+	grid-template-columns:
+		[full-width-start] minmax(var(--padding-inline), 1fr)
+		[breakout-start] minmax(0, var(--breakout-size))
+		[content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+		[content-end]
+		minmax(0, var(--breakout-size)) [breakout-end]
+		minmax(var(--padding-inline), 1fr) [full-width-end];
+	row-gap: 2ch;
+}
+
+.container > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+	grid-column: content;
+}
+
+.container > .breakout {
+	grid-column: breakout;
+}
+
+.container > .full-width {
+	grid-column: full-width;
+
+	display: grid;
+	grid-template-columns: inherit;
+}
+
+.project-grid {
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+	padding-bottom: 32px;
+	box-sizing: content-box;
+}
+
+.project {
+	--_project-bg-color: var(--color, transparent);
+	display: flex;
+	flex-direction: column;
+	text-align: start;
+	border-radius: 20px;
+	padding: 12px;
+	max-width: 250px;
+	height: fit-content;
+	transition:
+		padding 250ms ease,
+		margin 250ms ease;
+	cursor: pointer;
+	background-color: var(--_project-bg-color);
+}
+.project:not(.active):hover {
+	padding: 16px;
+	margin-top: -4px;
+	margin-bottom: -4px;
+}
+.project p,
+.project h3 {
+	margin: 0;
+	padding: 0;
+}
+
+.project.inProgress {
+	border: 1px dashed var(--color);
+	background-color: transparent;
+}
+
+.apps {
+	--color: #bb00ff;
+}
+.wacky {
+	--color: #e13c87;
+}
+.inProgress {
+	--color: #bb00ff;
+}
+.boringWebsites {
+	--color: #b25225;
+}
+
+footer {
+	padding-top: 32px;
+}
+.icons > div {
+	display: flex;
+	justify-content: center;
+	gap: 4px;
+}
+.icons > a {
+	font-size: 2rem;
+	color: #507fe7;
+	opacity: 0.3;
+}
+.icons > a:hover {
+	opacity: 1;
+}
+footer p {
+	font-size: 0.8rem;
+	color: #46465d;
+	margin: 0;
+}
