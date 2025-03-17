@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { allImagesSame, getRandomImage } from '$lib/images';
-	import Image from '../../../components/Image.svelte';
+	import { base } from '$app/paths';
 	import type { Project } from '$lib/project';
 	import Icon from '@iconify/svelte';
 	import MasonryGird from '../../../components/MasonryGrid.svelte';
@@ -58,7 +57,9 @@
 	{/if}
 
 	<div class="links">
-		<a class="text {data.category}" href="/"><Icon icon="bxs:left-arrow" /> <span>Go back</span></a>
+		<a class="text {data.category}" href={base}
+			><Icon icon="bxs:left-arrow" /> <span>Go back</span></a
+		>
 		{#if data.website}
 			<a class="text" href={data.website} target="_blank">
 				<Icon icon="gridicons:external" />

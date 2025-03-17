@@ -1,4 +1,6 @@
 <script>
+	export const prerender = true;
+
 	import { projects } from '$lib/project';
 	import { allImagesSame, getRandomImage } from '$lib/images';
 	import Icon from '@iconify/svelte';
@@ -15,8 +17,8 @@
 		<h1 class="primary">Hello this is my portfolio (kinda)</h1>
 	</div>
 	<p>
-		Developer based in Sweden (Close to Borås) constantly working on his house and (what I find) fun
-		software
+		Developer based in Swedens country side (Close to Borås) constantly working on his house and
+		(what I find) fun software
 	</p>
 	<h2 class="primary">Some stuff I am probably working on</h2>
 	<div class="project-grid">

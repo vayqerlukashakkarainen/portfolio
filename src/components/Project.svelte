@@ -1,13 +1,14 @@
 <script lang="ts">
 	import type { Project } from '$lib/project';
 	import Icon from '@iconify/svelte';
+	import { base } from '$app/paths';
 
 	export let project: Project;
 </script>
 
 <a
 	class={`project ${project.category}`}
-	href={project.isExternalUrl ? project.url : project.url + project.slug}
+	href={project.isExternalUrl ? project.url : `${base}/` + project.url + project.slug}
 	target={project.isExternalUrl ? '_blank' : '_self'}
 >
 	<div class="header">
