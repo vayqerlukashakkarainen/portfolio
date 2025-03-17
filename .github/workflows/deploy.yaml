@@ -8,6 +8,8 @@ on:
 jobs:
   build_site:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Deploy with gh-pages
         run: |
