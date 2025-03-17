@@ -1,5 +1,9 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+</script>
+
 <div>
-	<img src="images/me.png" alt="me" />
+	<img src={`${base}/images/me.png`} alt="me" />
 </div>
 
 <style>

@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	import { projects } from '$lib/project';
 	import { allImagesSame, getRandomImage } from '$lib/images';
 	import Icon from '@iconify/svelte';

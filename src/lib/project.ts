@@ -30,7 +30,7 @@ export function extractProjectImages(slug: string) {
 	return Object.values(files);
 }
 export function removeStaticDir(url: string) {
-	return url.replace('/static', '');
+	return url.replace('/static/', '');
 }
 
 export function isImage(src: string) {

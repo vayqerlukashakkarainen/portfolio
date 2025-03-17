@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { getRandomImage, type Image } from '$lib/images';
 	export let image: Image;
 	export let index: number;
@@ -22,7 +23,7 @@
 		}, 500);
 	}}
 >
-	<img class:same={allSame} alt={image.caption} src={`/images/${image.url}`} />
+	<img class:same={allSame} alt={image.caption} src={`${base}/images/${image.url}`} />
 </button>
 
 <style>
