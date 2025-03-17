@@ -47,7 +47,7 @@ export const projects: Project[] = [
 		description: 'Movies and series randomizer',
 		icon: 'movie',
 		category: 'apps',
-		url: '/projects/',
+		url: 'projects/',
 		website: 'https://vayqerlukashakkarainen.github.io/showmeamovie/',
 		slug: 'smam',
 		pageContent: {
@@ -100,7 +100,7 @@ export const projects: Project[] = [
 		description: 'Travel and discover Sweden',
 		icon: 'movie',
 		category: 'apps',
-		url: '/projects/',
+		url: 'projects/',
 		slug: 'vayqer'
 	}
 ];
