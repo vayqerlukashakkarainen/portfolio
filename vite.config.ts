@@ -10,6 +10,6 @@ export default async () => {
 
 	return defineConfig({
 		plugins: [sveltekit()],
-		base: dev ? '' : '/portfolio-site'
+		base: dev ? '' : '/portfolio'
 	});
 };
