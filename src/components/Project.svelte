@@ -8,22 +8,28 @@
 
 <a
 	class={`project ${project.category}`}
+	class:wip={project.wip}
 	href={project.isExternalUrl ? project.url : `${base}/` + project.url + project.slug}
 	target={project.isExternalUrl ? '_blank' : '_self'}
 >
+	<p class="date">{project.date}</p>
 	<div class="header">
 		<h3>{project.title}</h3>
 		{#if project.isExternalUrl}
 			<Icon icon="gridicons:external" />
 		{/if}
 	</div>
+
 	<p>{project.description}</p>
-	{#if project.category === 'inProgress'}
-		<span class="in-dev">IN DEVELOPMENT</span>
+	{#if project.wip}
+		<span class="in-dev">NOT FINISHED</span>
 	{/if}
 </a>
 
 <style>
+	.date {
+		font-size: 12px;
+	}
 	.header {
 		display: flex;
 		gap: 1ch;
@@ -32,15 +38,5 @@
 	}
 	a {
 		text-decoration: none;
-	}
-
-	.in-dev {
-		background-color: var(--color);
-		color: white;
-		font-size: 12px;
-		padding: 0.1rem 0.4rem;
-		width: fit-content;
-		border-radius: 0.6ch;
-		margin-top: 1ch;
 	}
 </style>

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { base } from '$app/paths';
 	import { extractProjectImages, isImage, isVideo, removeStaticDir } from '$lib/project';
 
 	export let slug: string;
@@ -9,12 +8,12 @@
 
 <div class="grid">
 	{#each imgs as image}
-		{#await image() then src}
+		{#await image then src}
 			{#if isImage(src)}
-				<img src={`${removeStaticDir(src)}`} alt="project images" />
+				<img src={`/${removeStaticDir(src)}`} alt="project images" />
 			{:else if isVideo(src)}
 				<video playsInline={true} autoPlay={true} muted={true} loop={true}>
-					<source src={`${removeStaticDir(src)}`} type="video/mp4" />
+					<source src={`/${removeStaticDir(src)}`} type="video/mp4" />
 				</video>
 			{/if}
 		{/await}

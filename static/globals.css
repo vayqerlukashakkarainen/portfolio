@@ -17,6 +17,16 @@ body {
 	color: #5a4c60;
 }
 
+h4 {
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin-top: 0;
+}
+
+h4,
 h3,
 h2,
 h1 {
@@ -27,7 +37,7 @@ h1.primary {
 }
 
 p {
-	color: rgb(217, 217, 217);
+	color: rgb(231, 231, 231);
 }
 
 .container {
@@ -100,7 +110,7 @@ p {
 	padding: 0;
 }
 
-.project.inProgress {
+.project.wip {
 	border: 1px dashed var(--color);
 	background-color: transparent;
 }
@@ -110,9 +120,6 @@ p {
 }
 .wacky {
 	--color: #e13c87;
-}
-.inProgress {
-	--color: #bb00ff;
 }
 .boringWebsites {
 	--color: #b25225;
@@ -138,4 +145,14 @@ footer p {
 	font-size: 0.8rem;
 	color: #46465d;
 	margin: 0;
+}
+
+.in-dev {
+	background-color: var(--color);
+	color: white;
+	font-size: 12px;
+	padding: 0.1rem 0.4rem;
+	width: fit-content;
+	border-radius: 0.6ch;
+	margin-top: 1ch;
 }

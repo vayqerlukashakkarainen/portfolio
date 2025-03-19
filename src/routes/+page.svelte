@@ -16,12 +16,12 @@
 		<h1 class="primary">Hello this is my portfolio (kinda)</h1>
 	</div>
 	<p>
-		Developer based in Swedens country side (Close to Borås) constantly working on his house and
-		(what I find) fun software
+		Developer based in Swedens country side (Close to Borås) constantly tinkering on my house and
+		(what I find) fun software, currently working as team leader @Rudholm Technology AB
 	</p>
 	<h2 class="primary">Some stuff I am probably working on</h2>
 	<div class="project-grid">
-		{#each projects as project}
+		{#each projects.sort((a, b) => b.date - a.date) as project}
 			<Project {project} />
 		{/each}
 	</div>
@@ -87,6 +87,9 @@
 	.yay.show {
 		opacity: 1;
 		transform: translateY(12px);
+	}
+	.yay p {
+		margin: 0;
 	}
 	.yay.show > div {
 		animation: rubber-band 1.3s linear;
