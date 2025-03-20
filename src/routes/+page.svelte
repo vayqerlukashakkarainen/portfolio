@@ -13,11 +13,11 @@
 <div class="container center">
 	<div class="me">
 		<Me />
-		<h1 class="primary">Hello this is my portfolio (kinda)</h1>
+		<h1 class="primary">Hello, this is pretty much my portfolio</h1>
 	</div>
 	<p>
-		Developer based in Swedens country side (Close to Borås) constantly tinkering on my house and
-		(what I find) fun software, currently working as team leader @Rudholm Technology AB
+		Developer based in Sweden's countryside, close to Borås, constantly tinkering on my house and
+		what I find fun software. Currently working as a team leader @Rudholm Technology AB.
 	</p>
 	<h2 class="primary">Some stuff I am probably working on</h2>
 	<div class="project-grid">
