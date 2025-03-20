@@ -39,7 +39,7 @@
 </div>
 <div class="hidden">
 	<div class="wrapper">
-		<div class="container outside" class:c-hidden={hidden}>
+		<div class={`container outside ${data.category}`} class:c-hidden={hidden}>
 			<div>
 				{#if data.wip}
 					<span class="in-dev">NOT FINISHED</span>
@@ -174,6 +174,7 @@
 	}
 	.container.outside h1 {
 		filter: drop-shadow(2px 4px 6px black);
+		margin-top: 0;
 	}
 	.container.c-hidden {
 		opacity: 0;
