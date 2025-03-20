@@ -208,12 +208,13 @@
 		display: flex;
 		gap: 4px;
 		align-items: center;
-		background-color: rgba(255, 255, 255, 0.06);
+		background-color: rgb(50 50 50 / 70%);
+		backdrop-filter: blur(1px);
 		padding: 4px 8px;
-		border-radius: 2px;
+		border-radius: 4px;
 	}
 	.text:hover {
-		background-color: rgba(255, 255, 255, 0.1);
+		background-color: rgba(70 70 70 / 70%);
 	}
 
 	.resource-card {

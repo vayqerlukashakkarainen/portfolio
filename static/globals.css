@@ -95,7 +95,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	text-align: start;
-	border-radius: 20px;
+	border-radius: 12px;
 	padding: 12px;
 	max-width: 250px;
 	height: fit-content;
