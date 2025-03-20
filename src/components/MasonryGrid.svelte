@@ -3,10 +3,10 @@
 
 	export let slug: string;
 
-	const imgs = extractProjectImages(slug);
+	const imgs = extractProjectImages(slug, 12);
 </script>
 
-<div class="grid">
+<div class="test">
 	{#each imgs as image}
 		{#await image then src}
 			{#if isImage(src)}
@@ -21,22 +21,22 @@
 </div>
 
 <style>
-	.grid {
-		width: 416px;
+	.test {
+		display: flex;
+		flex-wrap: wrap;
+		width: 600px;
 		position: relative;
-		left: -208px;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
-		row-gap: 8px;
-		column-gap: 8px;
+		gap: 6px;
+		transform: translateX(-50%);
 	}
-
+	.test > * {
+		max-height: 400px;
+		width: auto;
+	}
 	video,
 	img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		border-radius: 28px;
-		border: 3px solid rgb(29, 29, 29);
 	}
 </style>

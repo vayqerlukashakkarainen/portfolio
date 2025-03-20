@@ -1,8 +1,9 @@
 <h4>About</h4>
 <p>
-	Originated from my partner which requested a E-commerce site for handcrafted decorations for
-	children rooms. Choosing WordPress and Woocommerce seemed like the easiest, cheapest and most
-	tested solution, which could later be maintained and administrated without my involvement.
+	This project started as a request from my partner for an e-commerce site selling handcrafted
+	decorations for children’s rooms. I chose WordPress and WooCommerce as the most straightforward,
+	cost-effective, and well-supported solution—allowing for easy maintenance and administration
+	without my ongoing involvement.
 </p>
 <h4>Challenges</h4>
-<p>Meeting the standards of my partner, without letting her down :)</p>
+<p>Meeting my partner’s standards and expectations, while making sure not to let her down. :)</p>

@@ -36,18 +36,30 @@ export interface Project {
 	pageContent?: ProjectPageContent;
 }
 
-const imgs: string[] = [];
+let imgs: string[] = [];
 export async function extractImages() {
 	const files = import.meta.glob(`/static/images/**/*`, { query: '?url', import: 'default' });
-	const v = Object.values(files);
-	v.map(async (v) => {
-		const c = (await v()) as string;
-		imgs.push(c);
-	});
+	imgs = Object.keys(files);
 }
 
-export function extractProjectImages(slug: string) {
-	return imgs.filter((i) => i.includes(slug));
+export function anyMediaInProject(slug: string) {
+	const media = imgs.filter((i) => i.includes(slug));
+	const anyVideo = media.some((x) => isVideo(x));
+
+	return { anyMedia: media.length > 0, anyVideo };
+}
+
+export function extractProjectImages(slug: string, amount: number) {
+	const filtered = imgs.filter((i) => i.includes(slug));
+
+	const arr: string[] = [];
+
+	for (let i = 0; i < amount; i++) {
+		const rnd = Math.floor(Math.random() * filtered.length);
+		arr.push(filtered[rnd]);
+	}
+
+	return arr;
 }
 export function removeStaticDir(url: string) {
 	return url.replace('/static/', '');
@@ -119,7 +131,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Vayqer',
-		description: 'Travel and discover Sweden',
+		description: 'Roadtrip platform to travel and discover Sweden',
 		icon: 'movie',
 		date: 2021,
 		category: 'apps',
@@ -200,7 +212,7 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Behaviour Trees in DOTS',
-		description: 'BT implementation in Unity DOTS',
+		description: 'BT implementation in Unity`s Data-Oriented Technology Stack',
 		icon: '',
 		date: 2023,
 		category: 'wacky',
@@ -278,7 +290,7 @@ export const projects: Project[] = [
 		}
 	},
 	{
-		title: 'Environemnt generator',
+		title: 'Environment generator',
 		description: 'Terrain and nature generator in Unity',
 		icon: '',
 		date: 2023,
@@ -293,6 +305,11 @@ export const projects: Project[] = [
 					text: 'Unity',
 					icon: 'mdi:unity',
 					url: 'https://unity.com/'
+				},
+				{
+					text: 'Blender',
+					icon: 'simple-icons:blender',
+					url: 'https://blender.org/'
 				}
 			]
 		}

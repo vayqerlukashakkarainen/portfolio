@@ -6,10 +6,16 @@
 	--color-sand-400: #e8a877;
 	--color-fire-300: #f55b4b;
 }
+::-webkit-scrollbar-track {
+	background-color: red;
+}
 
 body {
 	background-color: var(--color-teal-900);
 	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	scrollbar-color: var(--color-teal-700) transparent;
+	scrollbar-width: thin;
 }
 
 .secondary {
