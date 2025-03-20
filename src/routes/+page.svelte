@@ -10,6 +10,11 @@
 	$: allSame = false;
 </script>
 
+<svelte:head>
+	<meta property="og:title" content="Hey! - Lukas Hakkarainen" />
+	<meta property="og:image" content={`${base}/urlimg.png`} />
+</svelte:head>
+
 <div class="container center">
 	<div class="me">
 		<Me />
