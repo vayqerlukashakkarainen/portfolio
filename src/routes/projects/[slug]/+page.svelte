@@ -151,14 +151,18 @@
 		padding-top: 22px;
 		padding-bottom: 22px;
 		width: 100%;
-		animation: in-3 300ms ease;
 		position: relative;
+	}
+
+	.container:not(.outside) {
+		animation: in-3 300ms ease;
 	}
 	.container.content {
 		background-color: rgba(0, 0, 0, 0.9);
 		max-height: 60%;
 		overflow: auto;
 		position: relative;
+		scrollbar-gutter: stable both-edges;
 	}
 	.container.outside {
 		padding: 0;
