@@ -101,7 +101,7 @@
 				<svelte:component this={data.pageContent.description} />
 			{/if}
 			<div class="links footer">
-				<a class="text {data.category}" href={base}
+				<a class="text {data.category}" href={`/${base}`}
 					><Icon icon="bxs:left-arrow" /> <span>Go back</span></a
 				>
 				{#if data.website}
