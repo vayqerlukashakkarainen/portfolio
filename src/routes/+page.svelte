@@ -12,7 +12,7 @@
 
 <svelte:head>
 	<meta property="og:title" content="Hey! - Lukas Hakkarainen" />
-	<meta property="og:image" content={`${base}/urlimg.png`} />
+	<meta property="og:image" content={`https://luhakk.com/urlimg.png`} />
 </svelte:head>
 
 <div class="container center">
