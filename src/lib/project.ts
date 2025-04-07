@@ -29,6 +29,7 @@ export interface Project {
 	category: Category;
 	url: string;
 	website?: string;
+	appUrl?: string;
 	isExternalUrl?: boolean;
 	slug: string;
 	date: number;
@@ -82,26 +83,15 @@ export const projects: Project[] = [
 		category: 'apps',
 		url: 'projects/',
 		website: 'https://vayqerlukashakkarainen.github.io/showmeamovie/',
+		appUrl: 'https://smam.luhakk.com/',
 		slug: 'smam',
 		pageContent: {
 			description: Smam,
-			appRes: [
-				{
-					text: 'iOS App store',
-					url: 'https://apps.apple.com/se/app/show-me-a-movie/id1610758365?l=en-GB',
-					icon: 'simple-icons:appstore'
-				},
-				{
-					text: 'Google play store',
-					url: 'https://play.google.com/store/apps/details?id=io.vayqer.movieapp',
-					icon: 'ion:logo-google-playstore'
-				}
-			],
 			devRes: [
 				{
-					text: 'Framework7',
-					url: 'https://framework7.io/',
-					icon: 'simple-icons:framework7'
+					text: 'Cordova',
+					url: 'https://cordova.apache.org/',
+					icon: 'simple-icons:apachecordova'
 				}
 			],
 			apiRes: [

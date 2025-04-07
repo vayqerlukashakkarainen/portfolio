@@ -118,6 +118,12 @@
 						>
 					{/if}
 				{/if}
+				{#if data.appUrl}
+					<a class="text app" href={data.appUrl} target="_blank">
+						<Icon icon="gridicons:external" />
+						<span>View app</span></a
+					>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -212,6 +218,9 @@
 		backdrop-filter: blur(1px);
 		padding: 4px 8px;
 		border-radius: 4px;
+	}
+	.text.app {
+		background-color: rgba(135, 114, 33, 0.7);
 	}
 	.text:hover {
 		background-color: rgba(70 70 70 / 70%);
