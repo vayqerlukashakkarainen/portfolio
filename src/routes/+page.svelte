@@ -6,6 +6,7 @@
 	import Project from '../components/Project.svelte';
 	import Image from '../components/Image.svelte';
 	import Me from '../components/Me.svelte';
+	import Dialog from '../components/Dialog.svelte';
 
 	$: allSame = false;
 </script>
@@ -18,11 +19,16 @@
 <div class="container center">
 	<div class="me">
 		<Me />
-		<h1 class="primary">Hello, this is pretty much my portfolio</h1>
+		<h1 class="primary">
+			<Dialog
+				text={'<wait=30>Hello!<wait=40> This is<wait=20><speed=20>... <wait=12><speed=7>pretty much <wait=40>my portfolio'}
+			/>
+		</h1>
 	</div>
 	<p>
-		Developer based in Sweden's countryside, close to Borås, constantly tinkering on my house and
-		what I find fun software. Currently working as a team leader @Rudholm Technology AB.
+		Self-taught software developer based in Sweden's countryside, close to Borås, constantly
+		tinkering on my house and what I find fun software. Currently working as a team leader @Rudholm
+		Technology AB.
 	</p>
 	<a href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/">
 		Reach out to me on LinkedIn
@@ -78,6 +84,7 @@
 		margin-top: -82px;
 		font-size: calc(1vw + 42px);
 		filter: drop-shadow(2px 4px 6px #00000087);
+		height: 160px;
 	}
 	.center {
 		text-align: center;
