@@ -33,6 +33,7 @@ export interface Project {
 	isExternalUrl?: boolean;
 	slug: string;
 	date: number;
+	bgImg?: string;
 	wip?: boolean;
 	pageContent?: ProjectPageContent;
 }
@@ -85,6 +86,7 @@ export const projects: Project[] = [
 		website: 'https://vayqerlukashakkarainen.github.io/showmeamovie/',
 		appUrl: 'https://smam.luhakk.com/',
 		slug: 'smam',
+		bgImg: 'images/smam/2img2.png',
 		pageContent: {
 			description: Smam,
 			devRes: [
@@ -117,6 +119,7 @@ export const projects: Project[] = [
 		wip: true,
 		url: 'https://vayqerlukashakkarainen.github.io/waycay-site/',
 		isExternalUrl: true,
+		bgImg: 'images/waycay/img1.png',
 		slug: 'waycay-ai'
 	},
 	{
@@ -127,6 +130,7 @@ export const projects: Project[] = [
 		category: 'apps',
 		url: 'projects/',
 		slug: 'vayqer',
+		bgImg: 'images/vayqer/img3.png',
 		pageContent: {
 			description: Vayqer,
 			devRes: [
@@ -174,6 +178,7 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'lu-monne',
+		bgImg: 'images/lu-monne/lumonne3.png',
 		pageContent: {
 			description: LuMonne,
 			devRes: [
@@ -201,6 +206,17 @@ export const projects: Project[] = [
 		}
 	},
 	{
+		title: 'SpaceDaze',
+		description: '1-bit style arcade space-shooter game',
+		icon: '',
+		date: 2025,
+		category: 'wacky',
+		url: 'https://spacedaze.luhakk.com',
+		isExternalUrl: true,
+		bgImg: 'images/spacedaze/video1.mp4',
+		slug: 'space-daze'
+	},
+	{
 		title: 'Behaviour Trees in DOTS',
 		description: 'BT implementation in Unity`s Data-Oriented Technology Stack',
 		icon: '',
@@ -209,6 +225,7 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'bt-dots',
+		bgImg: 'images/unity-bt/img1.png',
 		pageContent: {
 			description: UnityDots,
 			devRes: [
@@ -251,6 +268,7 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'cartopia',
+		bgImg: 'images/cartopia/video1.mp4',
 		pageContent: {
 			description: Cartopia,
 			devRes: [
@@ -288,6 +306,7 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'unity-environment',
+		bgImg: 'images/unity-environment/img2.png',
 		pageContent: {
 			description: Environment,
 			devRes: [

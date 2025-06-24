@@ -101,12 +101,13 @@ p {
 	height: fit-content;
 	transition:
 		padding 250ms ease,
-		margin 250ms ease;
+		margin 250ms ease,
+		background-position 400ms ease;
 	cursor: pointer;
 	background-color: var(--_project-bg-color);
 }
 .project:not(.active):hover {
-	padding: 16px;
+	padding: 10px;
 	margin-top: -4px;
 	margin-bottom: -4px;
 }
@@ -114,11 +115,6 @@ p {
 .project h3 {
 	margin: 0;
 	padding: 0;
-}
-
-.project.wip {
-	border: 1px dashed var(--color);
-	background-color: transparent;
 }
 
 .apps {

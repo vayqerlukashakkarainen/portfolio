@@ -24,6 +24,9 @@
 		Developer based in Sweden's countryside, close to Borås, constantly tinkering on my house and
 		what I find fun software. Currently working as a team leader @Rudholm Technology AB.
 	</p>
+	<a href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/">
+		Reach out to me on LinkedIn
+	</a>
 	<h2 class="primary">Some stuff I am probably working on</h2>
 	<div class="project-grid">
 		{#each projects.sort((a, b) => b.date - a.date) as project}
@@ -99,6 +102,9 @@
 	.yay.show > div {
 		animation: rubber-band 1.3s linear;
 		animation-delay: 300ms;
+	}
+	a {
+		color: var(--color-teal-500);
 	}
 
 	@keyframes rubber-band {
