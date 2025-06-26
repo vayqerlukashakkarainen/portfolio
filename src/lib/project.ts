@@ -6,6 +6,7 @@ import UnityDots from '../components/projects/UnityDots.svelte';
 import Cartopia from '../components/projects/Cartopia.svelte';
 import ScrollSite from '../components/projects/ScrollSite.svelte';
 import Environment from '../components/projects/Environment.svelte';
+import TwodLandz from '../components/projects/2dlandz.svelte';
 
 export type Category = 'wacky' | 'apps' | 'boringWebsites';
 
@@ -293,6 +294,33 @@ export const projects: Project[] = [
 					text: 'OpenStreetMap',
 					icon: 'simple-icons:openstreetmap',
 					url: 'https://www.openstreetmap.org/'
+				}
+			]
+		}
+	},
+	{
+		title: '2DLandz',
+		description: 'Fast-paced knockout platformer',
+		icon: '',
+		date: 2013,
+		category: 'wacky',
+		wip: false,
+		url: 'projects/',
+		isExternalUrl: false,
+		slug: '2d-landz',
+		bgImg: 'images/2d-landz/video1.mp4',
+		pageContent: {
+			description: TwodLandz,
+			devRes: [
+				{
+					text: 'XNA',
+					icon: 'mdi:microsoft-xbox-controller',
+					url: 'https://fna-xna.github.io/'
+				},
+				{
+					text: 'C#',
+					icon: 'devicon-plain:csharp',
+					url: 'https://learn.microsoft.com/sv-se/dotnet/csharp/'
 				}
 			]
 		}

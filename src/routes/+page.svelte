@@ -21,7 +21,7 @@
 		<Me />
 		<h1 class="primary">
 			<Dialog
-				text={'<wait=30>Hello!<wait=40> This is<wait=20><speed=20>... <wait=12><speed=7>pretty much <wait=40>my portfolio'}
+				text={'<wait=30>Hello!<wait=40> This is<wait=10><speed=20>... <wait=12><speed=7>pretty much <wait=30>my portfolio'}
 			/>
 		</h1>
 	</div>
@@ -33,7 +33,7 @@
 	<a href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/">
 		Reach out to me on LinkedIn
 	</a>
-	<h2 class="primary">Some stuff I am probably working on</h2>
+	<h2 class="primary">Some projects I've made</h2>
 	<div class="project-grid">
 		{#each projects.sort((a, b) => b.date - a.date) as project}
 			<Project {project} />
