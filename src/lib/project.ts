@@ -350,5 +350,16 @@ export const projects: Project[] = [
 				}
 			]
 		}
+	},
+	{
+		title: 'AI code reviewer',
+		description: 'Attach an AI with rules to review GH pull requests',
+		icon: '',
+		date: 2025,
+		category: 'apps',
+		url: 'https://github.com/vayqerlukashakkarainen/gpt-reviewer',
+		isExternalUrl: true,
+		slug: 'gpt-reviewer',
+		bgImg: 'images/gpt-reviewer/img1.png'
 	}
 ];

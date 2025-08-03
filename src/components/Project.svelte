@@ -22,7 +22,7 @@
 
 		<p>{project.description}</p>
 		{#if project.wip}
-			<span class="in-dev">NOT FINISHED</span>
+			<span class="in-dev">IN PROGRESS</span>
 		{/if}
 	</div>
 	{#if isVideo(project.bgImg ?? '')}
