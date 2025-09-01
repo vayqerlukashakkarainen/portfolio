@@ -361,5 +361,16 @@ export const projects: Project[] = [
 		isExternalUrl: true,
 		slug: 'gpt-reviewer',
 		bgImg: 'images/gpt-reviewer/img1.png'
+	},
+	{
+		title: 'ncompat',
+		description: 'Scan package.json against node compatibility',
+		icon: '',
+		date: 2025,
+		category: 'apps',
+		url: 'https://github.com/vayqerlukashakkarainen/ncompat',
+		isExternalUrl: true,
+		slug: 'ncompat',
+		bgImg: 'images/ncompat/img1.png'
 	}
 ];
