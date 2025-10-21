@@ -7,6 +7,7 @@ import Cartopia from '../components/projects/Cartopia.svelte';
 import ScrollSite from '../components/projects/ScrollSite.svelte';
 import Environment from '../components/projects/Environment.svelte';
 import TwodLandz from '../components/projects/2dlandz.svelte';
+import IconCreator from '../components/projects/IconCreator.svelte';
 
 export type Category = 'wacky' | 'apps' | 'boringWebsites';
 
@@ -361,5 +362,43 @@ export const projects: Project[] = [
 		isExternalUrl: true,
 		slug: 'gpt-reviewer',
 		bgImg: 'images/gpt-reviewer/img1.png'
+	},
+	{
+		title: 'ncompat',
+		description: 'Scan package.json against node compatibility',
+		icon: '',
+		date: 2025,
+		category: 'apps',
+		url: 'https://github.com/vayqerlukashakkarainen/ncompat',
+		isExternalUrl: true,
+		slug: 'ncompat',
+		bgImg: 'images/ncompat/img1.png'
+	},
+	{
+		title: 'Icon creator',
+		description: 'Client-side tool to convert images to native app icon formats',
+		icon: '',
+		date: 2025,
+		category: 'apps',
+		url: 'projects/',
+		isExternalUrl: false,
+		slug: 'icon-creator',
+		website: 'https://iconify.luhakk.com',
+		bgImg: 'images/icon-creator/img1.png',
+		pageContent: {
+			description: IconCreator,
+			devRes: [
+				{
+					text: 'JavaScript',
+					icon: 'mdi:language-javascript',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+				},
+				{
+					text: 'Canvas API',
+					icon: 'mdi:image-edit',
+					url: 'https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API'
+				}
+			]
+		}
 	}
 ];

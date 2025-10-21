@@ -33,32 +33,34 @@
 	<a href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/">
 		Reach out to me on LinkedIn
 	</a>
-	<h2 class="primary">Some projects I've made</h2>
-	<div class="project-grid">
-		{#each projects.sort((a, b) => b.date - a.date) as project}
-			<Project {project} />
-		{/each}
+	<div class="breakout pt-2">
+		<div class="project-grid">
+			{#each projects.sort((a, b) => b.date - a.date) as project}
+				<Project {project} />
+			{/each}
+		</div>
+		<h2 class="primary">Cute pictures of my dog</h2>
+		<div class="project-grid">
+			{#each { length: 3 } as _, i}
+				<Image
+					onChange={() => {
+						allSame = allImagesSame();
+					}}
+					{allSame}
+					index={i}
+					image={getRandomImage(i)}
+				/>
+			{/each}
+		</div>
 	</div>
-	<h2 class="primary">Cute pictures of my dog</h2>
-	<div class="project-grid breakout">
-		{#each { length: 3 } as _, i}
-			<Image
-				onChange={() => {
-					allSame = allImagesSame();
-				}}
-				{allSame}
-				index={i}
-				image={getRandomImage(i)}
-			/>
-		{/each}
-	</div>
+
 	<div class="yay" class:show={allSame}>
 		<p>Nice work! Here is your reward</p>
 		<div>
 			<Icon icon="fxemoji:trophy" />
 		</div>
 	</div>
-	<footer>
+	<footer class="pb-2">
 		<div class="icons">
 			<a target="_blank" href="https://github.com/vayqerlukashakkarainen"
 				><Icon icon="mdi:github" /></a
