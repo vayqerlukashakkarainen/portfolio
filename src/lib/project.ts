@@ -38,6 +38,7 @@ export interface Project {
 	bgImg?: string;
 	wip?: boolean;
 	pageContent?: ProjectPageContent;
+	aiUsage?: number;
 }
 
 let imgs: string[] = [];
@@ -240,15 +241,17 @@ export const projects: Project[] = [
 		}
 	},
 	{
-		title: 'Wacky scroll site',
-		description: 'Dynamic animation site based on page scroll',
+		title: 'Scrollable site',
+		description: 'Dynamic animations based on scroll',
 		icon: '',
 		date: 2024,
 		category: 'wacky',
-		wip: true,
-		url: 'projects/',
-		isExternalUrl: false,
+		wip: false,
+		aiUsage: 6,
+		url: 'https://scrollable.luhakk.com/',
+		isExternalUrl: true,
 		slug: 'scroll-page',
+		bgImg: 'images/scroll-page/scrollable.mp4',
 		pageContent: {
 			description: ScrollSite,
 			devRes: [

@@ -24,6 +24,9 @@
 		{#if project.wip}
 			<span class="in-dev">IN PROGRESS</span>
 		{/if}
+		{#if project.aiUsage !== undefined}
+			<span class="ai-usage"><Icon icon="mdi:robot" /> {project.aiUsage}%</span>
+		{/if}
 	</div>
 	{#if isVideo(project.bgImg ?? '')}
 		<video playsInline={true} autoPlay={true} muted={true} loop={true}>
