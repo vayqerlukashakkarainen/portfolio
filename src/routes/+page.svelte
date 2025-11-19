@@ -39,6 +39,122 @@
 				<Project {project} />
 			{/each}
 		</div>
+
+		<div>
+			<h2>Knowledge base</h2>
+			<p>Here you can read about the things I have experience with</p>
+			<div class="knowledge-container">
+				<h2>Customer relations</h2>
+				<p>
+					Experience in managing customer relationships, understanding client needs, and delivering
+					solutions that meet or exceed expectations. Having roots in service industry and sales has
+					taught me the value of good customer relations, and how to foster them.
+				</p>
+
+				<hr />
+				<h2>Project management</h2>
+				<h3>Agile methodologies (to some extent)</h3>
+				<p>
+					Experience in implementing Agile practices such as Scrum and Kanban to enhance team
+					collaboration, adaptability, and project delivery. Although I do not fully believe in
+					methodologies to be followed 100%, I do see the value in certain parts of them.
+				</p>
+				<h3>Deliverer</h3>
+				<p>
+					Proven track record of successfully delivering projects on time and within budget while
+					maintaining high-quality standards.
+				</p>
+				<h3>Team leadership</h3>
+				<p>
+					Experience in leading and motivating teams to achieve project goals, fostering a
+					collaborative and productive work environment.
+				</p>
+				<h3>The art of feature development</h3>
+				<p>
+					I've come to call this "The art of feature development" as it encompasses the entire
+					process of understanding user needs, designing solutions by iterating on feedback from
+					fast developed mock ups before actual implementation. This has proven to be an effective
+					way to ensure that the final product meets user expectations, and reduces the risk of
+					costly changes later in the development process.
+				</p>
+				<p>The key parts are:</p>
+				<ul>
+					<li>
+						Start by understanding the requested features and user needs by gathering requirements
+						and feedback.
+					</li>
+					<li>
+						Design solutions by iterating on feedback from fast developed mock ups before actual
+						implementation. <b>This is crucial</b> to ensure that the design aligns with user expectations
+						before any actual coding starts.
+					</li>
+					<li>
+						Implement the feature in small, manageable increments, allowing for frequent testing and
+						feedback.
+					</li>
+					<li>
+						Continuously test and gather feedback from users to ensure the feature meets their needs
+						and expectations.
+					</li>
+				</ul>
+				<hr />
+				<h2>Technical skills</h2>
+				<h3>Continous integration and deployment</h3>
+				<p>
+					Setting up continuous integration and deployment pipelines using GitHub Actions to
+					automate testing and deployment processes for various projects.
+				</p>
+				<h3>DevOps</h3>
+				<p>
+					Implementing infrastructure as code, monitoring, and collaboration practices to improve
+					software delivery and reliability.
+				</p>
+				<h3>Cloud configuration</h3>
+				<p>
+					Experience with configuring and managing cloud services on platforms like Google Cloud and
+					Azure, including setting up virtual servers, databases, and networking.
+				</p>
+				<h3>Agentic applications</h3>
+				<p>
+					Building applications that leverage custom built AI agents to perform tasks autonomously,
+					enhancing user experience and functionality.
+				</p>
+				<h3>Programming languages</h3>
+				<p>
+					Even tho I believe the programming language of choice is dependent on the application and
+					need, and there should actually be no preference beyond scalability and maintainability, I
+					have experience with languages such as JavaScript, Java, C++, Python, and C#.
+				</p>
+				<h3>Debugging</h3>
+				<p>
+					One of the most important skills as a developer is the ability to effectively debug code
+					and understand certain behaviors. I have experience in using various debugging tools and
+					techniques to identify and resolve issues in software applications, which should be
+					expected from any developer today.
+				</p>
+				<hr />
+				<h2>Design</h2>
+				<h3>UI/UX</h3>
+				<p>
+					Experience in designing user interfaces and user experiences that are intuitive, visually
+					appealing, and user-friendly. Understanding the principles of design, usability, and
+					accessibility to create effective digital products.
+				</p>
+				<h3>Graphic design</h3>
+				<p>
+					Proficient in using design tools such as Adobe Photoshop, Illustrator, and Figma to create
+					graphics, logos, and other visual elements.
+				</p>
+				<h3>Frontend frameworks</h3>
+				<p>
+					This goes as the same mentality as Programming Languages, frameworks are just a tool for
+					reaching the goal of a maintainable application. But I am experienced with frontend
+					frameworks such as Svelte, React, and Vue.js to build responsive and dynamic web
+					applications.
+				</p>
+			</div>
+		</div>
+
 		<h2 class="primary">Cute pictures of my dog</h2>
 		<div class="project-grid">
 			{#each { length: 3 } as _, i}

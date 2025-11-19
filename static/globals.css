@@ -1,5 +1,6 @@
 :root {
 	--color-teal-900: #1b1b24;
+	--color-teal-800: #23232d;
 	--color-teal-700: #497171;
 	--color-teal-500: #639c89;
 	--color-dust-200: #bdb99c;
@@ -165,4 +166,29 @@ footer p {
 	width: fit-content;
 	border-radius: 0.6ch;
 	margin-top: 1ch;
+}
+
+.knowledge-container {
+	background-color: var(--color-teal-800);
+	padding: 12px 32px;
+	border-radius: 12px;
+	text-align: start;
+}
+
+.knowledge-container h3 {
+	font-size: 16px;
+	padding-bottom: 0;
+	margin-bottom: 4px;
+	padding-top: 22px;
+}
+
+.knowledge-container p,
+.knowledge-container li {
+	font-size: 14px;
+	line-height: 1.8;
+}
+
+.knowledge-container hr {
+	margin: 32px 0;
+	opacity: 0.05;
 }
