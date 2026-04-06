@@ -46,9 +46,6 @@
 				{/if}
 				<div class="meta">
 					<h1>{data.title}<span>{data.date}</span></h1>
-					{#if data.aiUsage !== undefined}
-						<span class="ai-usage">AI Usage: {data.aiUsage}%</span>
-					{/if}
 				</div>
 			</div>
 		</div>
@@ -59,9 +56,6 @@
 				{/if}
 				<div class="meta">
 					<h1>{data.title}<span>{data.date}</span></h1>
-					{#if data.aiUsage !== undefined}
-						<span class="ai-usage">AI Usage: {data.aiUsage}%</span>
-					{/if}
 				</div>
 			</div>
 
@@ -145,13 +139,6 @@
 	.meta span {
 		font-size: 14px;
 		padding-left: 8px;
-	}
-	.ai-usage {
-		display: block;
-		font-size: 12px;
-		opacity: 0.7;
-		padding-left: 0;
-		margin-top: 4px;
 	}
 	.container.content h1 {
 		margin-top: 0;

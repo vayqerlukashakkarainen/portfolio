@@ -38,7 +38,6 @@ export interface Project {
 	bgImg?: string;
 	wip?: boolean;
 	pageContent?: ProjectPageContent;
-	aiUsage?: number;
 }
 
 let imgs: string[] = [];
@@ -247,7 +246,6 @@ export const projects: Project[] = [
 		date: 2024,
 		category: 'wacky',
 		wip: false,
-		aiUsage: 6,
 		url: 'https://scrollable.luhakk.com/',
 		isExternalUrl: true,
 		slug: 'scroll-page',
