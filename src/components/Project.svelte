@@ -25,7 +25,7 @@
 			<span class="in-dev">IN PROGRESS</span>
 		{/if}
 		{#if project.aiUsage !== undefined}
-			<span class="ai-usage"><Icon icon="mdi:robot" /> {project.aiUsage}%</span>
+			<span class="ai-usage">{project.aiUsage}%</span>
 		{/if}
 	</div>
 	{#if isVideo(project.bgImg ?? '')}
