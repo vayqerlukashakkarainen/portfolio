@@ -9,6 +9,11 @@
 	import Dialog from '../components/Dialog.svelte';
 
 	$: allSame = false;
+	$: appsProjects = projects.filter((p) => p.category === 'apps').sort((a, b) => b.date - a.date);
+	$: wackyProjects = projects.filter((p) => p.category === 'wacky').sort((a, b) => b.date - a.date);
+	$: boringProjects = projects
+		.filter((p) => p.category === 'boringWebsites')
+		.sort((a, b) => b.date - a.date);
 </script>
 
 <svelte:head>
@@ -16,7 +21,7 @@
 	<meta property="og:image" content={`https://luhakk.com/urlimg.png`} />
 </svelte:head>
 
-<div class="container center">
+<div class="container">
 	<div class="me">
 		<Me />
 		<h1 class="primary">
@@ -34,8 +39,23 @@
 		Reach out to me on LinkedIn
 	</a>
 	<div class="breakout pt-2">
+		<h2 class="primary">Apps</h2>
 		<div class="project-grid">
-			{#each projects.sort((a, b) => b.date - a.date) as project}
+			{#each appsProjects as project}
+				<Project {project} />
+			{/each}
+		</div>
+
+		<h2 class="primary">Wacky</h2>
+		<div class="project-grid">
+			{#each wackyProjects as project}
+				<Project {project} />
+			{/each}
+		</div>
+
+		<h2 class="primary">Boring websites</h2>
+		<div class="project-grid">
+			{#each boringProjects as project}
 				<Project {project} />
 			{/each}
 		</div>
@@ -82,6 +102,7 @@
 		align-items: center;
 		gap: 0;
 		padding-bottom: 60px;
+		text-align: center;
 	}
 	.me h1 {
 		margin-top: -82px;
@@ -89,10 +110,6 @@
 		filter: drop-shadow(2px 4px 6px #00000087);
 		height: 160px;
 	}
-	.center {
-		text-align: center;
-	}
-
 	.yay {
 		opacity: 0;
 		transform: translateY(0px);
