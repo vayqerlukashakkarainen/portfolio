@@ -57,7 +57,10 @@
 
 		<div class="breakout pt-2">
 			<div in:fade={{ duration: 200, delay: 240 }}>
-				<h2 class="primary">Apps</h2>
+				<header class="category-header">
+					<h2>Apps</h2>
+				</header>
+				<hr />
 				<div class="project-grid">
 					{#each appsProjects as project, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -68,7 +71,10 @@
 			</div>
 
 			<div in:fade={{ duration: 200, delay: 320 }}>
-				<h2 class="primary">Wacky</h2>
+				<header class="category-header">
+					<h2>Wacky</h2>
+				</header>
+				<hr />
 				<div class="project-grid">
 					{#each wackyProjects as project, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -79,7 +85,10 @@
 			</div>
 
 			<div in:fade={{ duration: 200, delay: 400 }}>
-				<h2 class="primary">Boring websites</h2>
+				<header class="category-header">
+					<h2>Boring websites</h2>
+				</header>
+				<hr />
 				<div class="project-grid">
 					{#each boringProjects as project, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -90,7 +99,10 @@
 			</div>
 
 			<div in:fade={{ duration: 200, delay: 480 }}>
-				<h2 class="primary">WordPress</h2>
+				<header class="category-header">
+					<h2>WordPress</h2>
+				</header>
+				<hr />
 				<div class="project-grid">
 					{#each wordpressProjects as project, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -101,7 +113,10 @@
 			</div>
 
 			<div in:fade={{ duration: 200, delay: 560 }}>
-				<h2 class="primary">Cute pictures of my dog</h2>
+				<header class="category-header">
+					<h2>Cute pictures of my dog</h2>
+				</header>
+				<hr />
 				<div class="project-grid">
 					{#each { length: 3 } as _, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -177,6 +192,27 @@
 	}
 	a {
 		color: var(--color-teal-500);
+	}
+
+	.category-header {
+		margin-bottom: 1rem;
+	}
+
+	.category-header h2 {
+		margin: 0 0 0.4rem;
+		font-size: 2rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+
+	hr {
+		border: none;
+		border-top: 1px solid var(--color-border);
+		margin: 0 0 1.5rem;
+	}
+
+	.breakout > div + div .category-header {
+		margin-top: 3rem;
 	}
 
 	.lars-banner {
