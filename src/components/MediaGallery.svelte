@@ -3,15 +3,12 @@
 
 	export let slug: string;
 
-	const allFiles = import.meta.glob('/static/images/**/*', {
-		query: '?url',
-		import: 'default',
-		eager: true
-	}) as Record<string, string>;
+	// Use keys (file paths) not values (resolved URLs) — strip /static prefix for browser
+	const allFiles = import.meta.glob('/static/images/**/*', { query: '?url', import: 'default' });
 
-	$: files = Object.entries(allFiles)
-		.filter(([path]) => path.includes(`/images/${slug}/`))
-		.map(([, url]) => url as string)
+	$: files = Object.keys(allFiles)
+		.filter((path) => path.includes(`/images/${slug}/`))
+		.map((path) => path.replace(/^\/static/, ''))
 		.sort();
 </script>
 
