@@ -1,27 +1,23 @@
 :root {
-	--color-teal-900: #1b1b24;
-	--color-teal-800: #23232d;
-	--color-teal-700: #497171;
-	--color-teal-500: #639c89;
-	--color-dust-200: #bdb99c;
-	--color-sand-400: #e8a877;
-	--color-fire-300: #f55b4b;
-}
-::-webkit-scrollbar-track {
-	background-color: red;
+	--color-bg: #f8f8f8;
+	--color-surface: #ffffff;
+	--color-border: #e2e2e2;
+	--color-text-primary: #0f0f0f;
+	--color-text-secondary: #6b6b6b;
+	--color-accent: #2563eb;
 }
 
 body {
-	background-color: var(--color-teal-900);
-	font-family: 'Poppins', sans-serif;
+	background-color: var(--color-bg);
+	font-family: 'Inter', sans-serif;
 	margin: 0;
-	scrollbar-color: var(--color-teal-700) transparent;
+	scrollbar-color: var(--color-border) transparent;
 	scrollbar-width: thin;
 }
 
 .secondary {
-	font-size: 1.4rem;
-	color: #5a4c60;
+	font-size: 1.2rem;
+	color: var(--color-text-secondary);
 }
 
 .pt-2 {
@@ -45,14 +41,15 @@ h3,
 h2,
 li,
 h1 {
-	color: white;
+	color: var(--color-text-primary);
 }
 h1.primary {
-	font-size: 4rem;
+	font-size: 3.5rem;
+	font-weight: 600;
 }
 
 p {
-	color: rgb(231, 231, 231);
+	color: var(--color-text-secondary);
 }
 
 .container {
@@ -100,25 +97,27 @@ p {
 }
 
 .project {
-	--_project-bg-color: var(--color, transparent);
+	--_project-bg-color: var(--color-surface);
 	display: flex;
 	flex-direction: column;
 	text-align: start;
-	border-radius: 12px;
-	padding: 12px;
+	border-radius: 0;
+	border: 1px solid var(--color-border);
+	border-left: 3px solid var(--color, var(--color-border));
+	padding: 16px;
 	max-width: 250px;
 	height: fit-content;
 	transition:
-		padding 250ms ease,
-		margin 250ms ease,
-		background-position 400ms ease;
+		border-color 200ms ease,
+		box-shadow 200ms ease;
 	cursor: pointer;
 	background-color: var(--_project-bg-color);
 }
 .project:not(.active):hover {
-	padding: 10px;
-	margin-top: -4px;
-	margin-bottom: -4px;
+	border-color: var(--color-text-primary);
+	box-shadow: 4px 4px 0 var(--color-text-primary);
+	padding: 16px;
+	margin: 0;
 }
 .project p,
 .project h3 {
@@ -127,13 +126,16 @@ p {
 }
 
 .apps {
-	--color: #bb00ff;
+	--color: #2563eb;
 }
 .wacky {
-	--color: #e13c87;
+	--color: #dc2626;
 }
 .boringWebsites {
-	--color: #b25225;
+	--color: #16a34a;
+}
+.wordpress {
+	--color: #3b82f6;
 }
 
 footer {
@@ -145,50 +147,28 @@ footer {
 	gap: 4px;
 }
 .icons > a {
-	font-size: 2rem;
-	color: #507fe7;
-	opacity: 0.3;
+	font-size: 1.8rem;
+	color: var(--color-text-primary);
+	opacity: 0.25;
 }
 .icons > a:hover {
 	opacity: 1;
 }
 footer p {
 	font-size: 0.8rem;
-	color: #46465d;
+	color: var(--color-text-secondary);
 	margin: 0;
 }
 
 .in-dev {
-	background-color: var(--color);
-	color: white;
-	font-size: 12px;
-	padding: 0.1rem 0.4rem;
+	background-color: var(--color-text-primary);
+	color: var(--color-bg);
+	font-size: 11px;
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	padding: 0.15rem 0.5rem;
 	width: fit-content;
-	border-radius: 0.6ch;
+	border-radius: 0;
 	margin-top: 1ch;
-}
-
-.knowledge-container {
-	background-color: var(--color-teal-800);
-	padding: 12px 32px;
-	border-radius: 12px;
-	text-align: start;
-}
-
-.knowledge-container h3 {
-	font-size: 16px;
-	padding-bottom: 0;
-	margin-bottom: 4px;
-	padding-top: 22px;
-}
-
-.knowledge-container p,
-.knowledge-container li {
-	font-size: 14px;
-	line-height: 1.8;
-}
-
-.knowledge-container hr {
-	margin: 32px 0;
-	opacity: 0.05;
 }

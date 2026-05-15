@@ -46,32 +46,19 @@
 		background-position: 10% 20%;
 	}
 
-	.date {
-		font-size: 12px;
-	}
 	.content {
 		display: flex;
 		flex-direction: column;
 		gap: 2px;
 		position: relative;
 		z-index: 1;
-		padding: 12px;
-	}
-	.content::before {
-		content: '';
-		position: absolute;
-		left: -50%;
-		top: -10%;
-		right: -50%;
-		bottom: -120%;
-		z-index: -1;
-		background: radial-gradient(rgba(0, 0, 0, 0.757), transparent 70%);
+		padding: 16px;
 	}
 	.header {
 		display: flex;
 		gap: 1ch;
 		align-items: center;
-		color: white;
+		color: var(--color-text-primary);
 	}
 	a {
 		text-decoration: none;
