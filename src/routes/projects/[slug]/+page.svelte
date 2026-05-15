@@ -30,9 +30,6 @@
 				{#if data.wip}
 					<span class="in-dev">IN PROGRESS</span>
 				{/if}
-				{#if data.builtWithLars}
-					<span class="lars-badge">⚡ Built with Lars</span>
-				{/if}
 			</header>
 		</div>
 
@@ -76,7 +73,6 @@
 						</div>
 					{/if}
 				</div>
-				<hr />
 			{/if}
 
 			<div class="content" in:fade={{ duration: 200, delay: 200 }}>
@@ -233,19 +229,5 @@
 	}
 	footer a:hover {
 		text-decoration: underline;
-	}
-	.lars-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.3ch;
-		font-size: 0.7rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.06em;
-		color: var(--color-bg);
-		background: var(--color-text-primary);
-		border-radius: 3px;
-		padding: 2px 6px;
-		width: fit-content;
 	}
 </style>

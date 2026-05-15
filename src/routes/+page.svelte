@@ -43,12 +43,7 @@
 			tinkering on my house and what I find fun software. Building Lars and currently working as a
 			team leader @Rudholm Technology AB.
 		</p>
-		<a
-			in:fade={{ duration: 200, delay: 120 }}
-			href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
-		>
-			Reach out to me on LinkedIn
-		</a>
+
 		<div class="lars-banner" in:fade={{ duration: 200, delay: 160 }}>
 			<h2 class="lars-heading">Lars</h2>
 			<p class="lars-sub">An AI agent system I'm building</p>
@@ -59,11 +54,8 @@
 			<div in:fade={{ duration: 200, delay: 240 }}>
 				<header class="category-header">
 					<h2>Apps</h2>
-					<p class="category-desc">
-						Things you can actually use — web apps, tools, and experiments
-					</p>
+					<p class="category-desc">Things you can actually use! Web apps, tools, and experiments</p>
 				</header>
-				<hr />
 				<div class="project-grid">
 					{#each appsProjects as project, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -80,7 +72,6 @@
 						Odd ideas, creative hacks, and projects built mostly for the fun of it
 					</p>
 				</header>
-				<hr />
 				<div class="project-grid">
 					{#each wackyProjects as project, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -93,9 +84,8 @@
 			<div in:fade={{ duration: 200, delay: 400 }}>
 				<header class="category-header">
 					<h2>Boring websites</h2>
-					<p class="category-desc">Clean, functional sites — the kind clients actually ask for</p>
+					<p class="category-desc">Clean, functional sites</p>
 				</header>
-				<hr />
 				<div class="project-grid">
 					{#each boringProjects as project, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -110,7 +100,6 @@
 					<h2>WordPress extensions</h2>
 					<p class="category-desc">Custom blocks and plugins built on top of WordPress</p>
 				</header>
-				<hr />
 				<div class="project-grid">
 					{#each wordpressProjects as project, i}
 						<div in:fade={{ duration: 200, delay: i * 60 }}>
@@ -170,13 +159,10 @@
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 0;
-		padding-bottom: 60px;
 		text-align: left;
 	}
 	.me h1 {
-		margin-top: -82px;
 		font-size: calc(1vw + 42px);
-
 		height: 160px;
 	}
 	.yay {
@@ -234,8 +220,7 @@
 		margin-top: 2rem;
 		padding: 2rem;
 		border-radius: 4px;
-		background: var(--color-border);
-		border-left: 4px solid var(--color-teal-500);
+		background: rgb(240, 240, 240);
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;

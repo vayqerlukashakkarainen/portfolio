@@ -35,9 +35,6 @@
 			{#if project.wip}
 				<span class="in-dev">IN PROGRESS</span>
 			{/if}
-			{#if project.builtWithLars}
-				<span class="lars-badge">⚡ Built with Lars</span>
-			{/if}
 		</div>
 	</div>
 </a>
@@ -71,7 +68,12 @@
 	.overlay {
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+		background: linear-gradient(
+			to top,
+			rgba(0, 0, 0, 0.75) 0%,
+			rgba(0, 0, 0, 0.1) 60%,
+			transparent 100%
+		);
 	}
 	.content {
 		position: absolute;
@@ -97,7 +99,7 @@
 	p {
 		margin: 0;
 		font-size: 0.8rem;
-		color: rgba(255,255,255,0.75);
+		color: rgba(255, 255, 255, 0.75);
 	}
 	.badges {
 		display: flex;
