@@ -17,53 +17,118 @@
 
 		<header in:fade={{ duration: 200, delay: 60 }}>
 			<h1>Lars</h1>
-			<p class="subtitle">An AI agent system I'm building</p>
+			<p class="subtitle">An AI agent system built around one idea: extend the person, not replace them.</p>
 		</header>
 
 		<section in:fade={{ duration: 200, delay: 120 }}>
-			<h2>What is Lars?</h2>
+			<h2>Philosophy</h2>
 			<p>
-				Lars is a personal AI agent system built around persistent, context-aware agents that can
-				see, hear, speak, and act. Agents run as specialised sessions with tools, memory, and access
-				to connected devices like phones, glasses, and speakers.
+				I'm not a carpenter. But I know enough to be analytic about it — I can probably tell a bad
+				approach from a good one. Lars is there to extend my knowledge base in carpentry, not to
+				replace the judgment I bring. The same logic applies to software development, which is my
+				actual domain. I know what good and bad architecture looks like. I understand the pitfalls
+				and the core mechanics of how a computer operates. That knowledge is what lets me stay in
+				control when I use Lars — I'm directing it, not being replaced by it.
+			</p>
+			<p>
+				AI is most powerful when the person using it knows enough to evaluate what comes back.
+				That's the relationship Lars is designed for: a wider circle around your current knowledge
+				domain, for every industry you touch.
+			</p>
+			<p>
+				You can't be in control if you replace yourself. But you can replace chores, friction, and
+				communication.
 			</p>
 		</section>
 
 		<section in:fade={{ duration: 200, delay: 180 }}>
-			<h2>The Ecosystem</h2>
-			<p>Lars is made up of several layers:</p>
-			<ul>
-				<li>
-					<strong>agent-core</strong> — the runtime that manages agent sessions, tools, and memory
-				</li>
-				<li>
-					<strong>lars-tore</strong> — the registry for specialisations, skills, and apps
-				</li>
-				<li>
-					<strong>lars-run</strong> — the app store and execution layer for installable agent apps
-				</li>
-				<li>
-					<strong>Device integrations</strong> — agents can interface with GPS, camera, microphone, speaker,
-					and screen on connected devices
-				</li>
-				<li>
-					<strong>MCP support</strong> — agents can connect to any Model Context Protocol server
-				</li>
-			</ul>
+			<h2>An agent for every domain</h2>
+			<p>
+				Lars is industry-agnostic at its core. It isn't tied to one vertical — it can become Henry,
+				a specialised agent for the garment industry, with apps only accessible to Henry and its
+				industry, skills built specifically for that domain. Or it can be something else entirely for
+				someone else.
+			</p>
+			<p>
+				The important thing is that domains stay isolated. You can talk to Lars and Henry, but they
+				don't know about each other. There's no risk of one agent polluting another's context,
+				because they live in entirely separate spaces. Each agent is its own entity, shaped by its
+				industry and the person who configured it.
+			</p>
 		</section>
 
 		<section in:fade={{ duration: 200, delay: 240 }}>
-			<h2>This portfolio</h2>
+			<h2>Conversation beyond text</h2>
 			<p>
-				This site was built with Lars. The projects, layout, transitions, and media were all added
-				by Lars agents working in parallel git worktrees — each agent owning a branch and merging
-				into main when done.
+				Lars isn't a chat interface. You're not bound to typing — you can talk, speak, explain, play
+				audio, connect devices, show pictures. The richer the input, the better the understanding,
+				and the better the decisions Lars can make on your behalf.
+			</p>
+			<p>
+				This matters because real communication is multimodal. A lot of context is lost when you
+				flatten everything into text. Lars is designed to receive that context as naturally as
+				possible.
 			</p>
 		</section>
 
 		<section in:fade={{ duration: 200, delay: 300 }}>
-			<h2>Status</h2>
-			<p>Active development. Lars is a living project.</p>
+			<h2>Devices &amp; smart glasses</h2>
+			<p>
+				The mobile app extends Lars' reach. It can connect to Bluetooth devices, speak through
+				speakers, be aware of what's connected, and decide where and how to respond. Lars travels
+				with you.
+			</p>
+			<p>
+				I'm also building support for Mentra smart glasses via MetraOS open source software. Instead
+				of walking around with your phone taking pictures, Lars connects directly through the
+				glasses. It can pull device info, photos, video — anything the glasses can capture. And of
+				course speak, since Mentra comes with built-in speakers and a mic. Lars can see what you
+				see and hear what you hear.
+			</p>
+		</section>
+
+		<section in:fade={{ duration: 200, delay: 360 }}>
+			<h2>Why I'm building this</h2>
+			<p>
+				AI is great on its own. But it needs safe constraints and a safe environment to behave and
+				act securely — and when it has those, it performs even better. I want to push AI usage to
+				the common person, as an assistant shaped for their specific industry and life. Be it at
+				home writing groceries, or connected to Home Assistant as a smart home hub.
+			</p>
+			<p>
+				Lars isn't one single entity. Lars can be whatever entity, with whatever connections, for
+				whoever needs it. The goal is simple: make life easier, and more accessible.
+			</p>
+		</section>
+
+		<section in:fade={{ duration: 200, delay: 420 }}>
+			<h2>Architecture</h2>
+			<ul>
+				<li>
+					<strong>AI core harness system</strong> — the runtime where Lars operates: manages agent
+					sessions, tools, memory, and lifecycle
+				</li>
+				<li>
+					<strong>Application proxy</strong> — actions are performed by Lars here, with secrets
+					securely stored and never exposed to the agent
+				</li>
+				<li>
+					<strong>Agent app store</strong> — an installable app ecosystem targeted specifically for
+					agents, not end users
+				</li>
+				<li>
+					<strong>Mobile application</strong> — have Lars with you at all times, with Bluetooth,
+					speakers, and device awareness
+				</li>
+				<li>
+					<strong>Smart glasses connection</strong> — Mentra integration via MetraOS lets Lars see
+					what you see and hear what you hear
+				</li>
+				<li>
+					<strong>Conversational models</strong> — Lars can speak through its thinking process, not
+					just respond in text
+				</li>
+			</ul>
 		</section>
 	{/if}
 </div>
