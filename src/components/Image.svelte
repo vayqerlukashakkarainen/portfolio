@@ -54,7 +54,7 @@
 	img {
 		object-fit: cover;
 		width: 100%;
-		height: 200px;
+		height: 400px;
 		display: block;
 		transform-style: preserve-3d;
 		transition: border-color 400ms linear;
