@@ -1,23 +1,29 @@
-<h4>About</h4>
-<p>
+<script>
+	import { fade } from 'svelte/transition'
+</script>
+
+<h4 in:fade={{ duration: 200, delay: 0 }}>About</h4>
+<p in:fade={{ duration: 200, delay: 80 }}>
 	A simple mobile app that suggests random movies or TV shows to watch. It uses the TMDb (The Movie
 	Database) API for movie details and the JustWatch API for streaming availability. Two versions
 	were deployed, one free version using ads, and another "Gold" version wihtout ads.
 </p>
-<h4>Challenges</h4>
-<p>
-	I wanted to explore hybrid mobile development beyond simple prototypes and experiment with
-	deploying an app to production. It was an interesting challenge to configure iOS manifests and
-	Android settings to make the app store-ready.
-</p>
-<p>
-	Having never worked with ads before (specifically Google AdMob), seamlessly integrating them into
-	the design without disrupting the user experience was a challenging but insightful process.
-</p>
-<h4>What I learned</h4>
-<p>Nothing really, just a fun experience. Not everything has be about learning :)</p>
+<h4 in:fade={{ duration: 200, delay: 160 }}>Challenges</h4>
+<div in:fade={{ duration: 200, delay: 240 }}>
+	<p>
+		I wanted to explore hybrid mobile development beyond simple prototypes and experiment with
+		deploying an app to production. It was an interesting challenge to configure iOS manifests and
+		Android settings to make the app store-ready.
+	</p>
+	<p>
+		Having never worked with ads before (specifically Google AdMob), seamlessly integrating them into
+		the design without disrupting the user experience was a challenging but insightful process.
+	</p>
+</div>
+<h4 in:fade={{ duration: 200, delay: 320 }}>What I learned</h4>
+<p in:fade={{ duration: 200, delay: 400 }}>Nothing really, just a fun experience. Not everything has be about learning :)</p>
 
-<div class="media">
+<div class="media" in:fade={{ duration: 200, delay: 480 }}>
 	<div class="media-full">
 		<video controls playsinline style="width:100%">
 			<source src="/images/smam/3video.mp4" type="video/mp4" />

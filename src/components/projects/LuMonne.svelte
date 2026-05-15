@@ -1,13 +1,17 @@
-<h4>About</h4>
-<p>
+<script>
+	import { fade } from 'svelte/transition'
+</script>
+
+<h4 in:fade={{ duration: 200, delay: 0 }}>About</h4>
+<p in:fade={{ duration: 200, delay: 80 }}>
 	This project started as a request from my partner for an e-commerce site. I chose WordPress and
 	WooCommerce as the most straightforward, cost-effective, and well-supported solution—allowing for
 	easy maintenance and administration without my ongoing involvement.
 </p>
-<h4>Challenges</h4>
-<p>Meeting my partner's standards and expectations, while making sure not to let her down. :)</p>
+<h4 in:fade={{ duration: 200, delay: 160 }}>Challenges</h4>
+<p in:fade={{ duration: 200, delay: 240 }}>Meeting my partner's standards and expectations, while making sure not to let her down. :)</p>
 
-<div class="media">
+<div class="media" in:fade={{ duration: 200, delay: 320 }}>
 	<div class="media-full">
 		<img src="/images/lu-monne/image2.png" alt="" loading="lazy" />
 	</div>
