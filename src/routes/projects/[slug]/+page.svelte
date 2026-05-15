@@ -136,15 +136,14 @@
 
 	h1 {
 		margin: 0 0 0.4rem;
-		font-size: 3rem;
-		font-weight: 700;
+		font-size: 2rem;
+		font-weight: 600;
 		color: var(--color-text-primary);
-		letter-spacing: -0.02em;
 	}
 
 	.subtitle {
-		margin: 0 0 1.5rem;
-		font-size: 1.15rem;
+		margin: 0 0 1rem;
+		font-size: 0.9rem;
 		color: var(--color-text-secondary);
 	}
 
@@ -187,6 +186,16 @@
 	}
 	.resource-icons a:hover {
 		color: var(--color-accent);
+	}
+
+	.content :global(h4) {
+		font-size: 0.8rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		opacity: 0.6;
+		color: var(--color-text-primary);
+		margin: 1.5rem 0 0.5rem;
 	}
 
 	.content {

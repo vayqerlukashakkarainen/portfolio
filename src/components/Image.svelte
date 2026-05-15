@@ -34,31 +34,29 @@
 	}
 
 	button {
-		max-width: 312px;
-		border-radius: 22px;
-		border: none;
+		width: 100%;
+		border-radius: 4px;
+		border: 1px solid var(--color-border);
 		padding: 0;
 		background-color: transparent;
 		cursor: pointer;
-		transition: transform 400ms ease;
+		transition:
+			box-shadow 200ms ease,
+			border-color 200ms ease;
 		perspective: 1000px;
+		overflow: hidden;
+		display: block;
 	}
 	button:hover {
-		transform: scale(1.01);
+		border-color: var(--color-text-primary);
+		box-shadow: 4px 4px 0 var(--color-text-primary);
 	}
 	img {
 		object-fit: cover;
-		max-width: 100%;
+		width: 100%;
+		height: 200px;
+		display: block;
 		transform-style: preserve-3d;
-		border-radius: 22px;
-		border: 4px solid;
-		border-color: var(--color-teal-900);
-
-		background-origin: border-box;
-		background-clip: padding-box, border-box;
-		background-image: linear-gradient(transparent, transparent),
-			linear-gradient(calc(var(--test) * 1turn), #b25225, #e13c87);
-
 		transition: border-color 400ms linear;
 	}
 	button.clicked img {
@@ -66,7 +64,6 @@
 	}
 	.same {
 		animation: 2s test infinite;
-		border-color: transparent;
 	}
 
 	@keyframes test {

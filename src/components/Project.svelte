@@ -11,17 +11,18 @@
 	href={project.isExternalUrl ? project.url : `${base}/` + project.url + project.slug}
 	target={project.isExternalUrl ? '_blank' : '_self'}
 >
-	<div class="media">
-		{#if isVideo(project.bgImg ?? '')}
-			<video playsInline autoplay muted loop>
-				<source src={`${base}/${project.bgImg}`} type="video/mp4" />
-			</video>
-		{:else if project.bgImg}
-			<img src={`${base}/${project.bgImg}`} alt={project.title} />
-		{:else}
-			<div class="media-placeholder"></div>
-		{/if}
-	</div>
+	{#if isVideo(project.bgImg ?? '')}
+		<video class="bg" playsInline autoplay muted loop>
+			<source src={`${base}/${project.bgImg}`} type="video/mp4" />
+		</video>
+	{:else if project.bgImg}
+		<img class="bg" src={`${base}/${project.bgImg}`} alt={project.title} />
+	{:else}
+		<div class="bg bg-placeholder"></div>
+	{/if}
+
+	<div class="overlay"></div>
+
 	<div class="content">
 		<div class="header">
 			<h3>{project.title}</h3>
@@ -30,22 +31,24 @@
 			{/if}
 		</div>
 		<p>{project.description}</p>
-		{#if project.wip}
-			<span class="in-dev">IN PROGRESS</span>
-		{/if}
-		{#if project.builtWithLars}
-			<span class="lars-badge">⚡ Built with Lars</span>
-		{/if}
+		<div class="badges">
+			{#if project.wip}
+				<span class="in-dev">IN PROGRESS</span>
+			{/if}
+			{#if project.builtWithLars}
+				<span class="lars-badge">⚡ Built with Lars</span>
+			{/if}
+		</div>
 	</div>
 </a>
 
 <style>
 	a {
 		text-decoration: none;
-		display: flex;
-		flex-direction: row;
+		display: block;
 		position: relative;
 		overflow: hidden;
+		height: 200px;
 		transition:
 			box-shadow 200ms ease,
 			border-color 200ms ease;
@@ -54,61 +57,66 @@
 		border-color: var(--color-text-primary);
 		box-shadow: 4px 4px 0 var(--color-text-primary);
 	}
-	.media {
-		width: 160px;
-		min-width: 160px;
-		height: 140px;
-		overflow: hidden;
-		flex-shrink: 0;
-	}
-	.media img,
-	.media video {
+	.bg {
+		position: absolute;
+		inset: 0;
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		display: block;
 	}
-	.media-placeholder {
-		width: 100%;
-		height: 100%;
+	.bg-placeholder {
 		background-color: var(--color-border);
 	}
+	.overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+	}
 	.content {
+		position: absolute;
+		inset: 0;
 		display: flex;
 		flex-direction: column;
+		justify-content: flex-end;
 		gap: 4px;
-		padding: 16px;
-		justify-content: center;
+		padding: 14px;
 	}
 	.header {
 		display: flex;
 		gap: 1ch;
 		align-items: center;
-		color: var(--color-text-primary);
+		color: #fff;
 	}
 	h3 {
 		margin: 0;
 		font-size: 1rem;
 		font-weight: 600;
+		color: #fff;
 	}
 	p {
 		margin: 0;
-		font-size: 0.85rem;
-		color: var(--color-text-secondary);
+		font-size: 0.8rem;
+		color: rgba(255,255,255,0.75);
+	}
+	.badges {
+		display: flex;
+		gap: 4px;
+		flex-wrap: wrap;
+		margin-top: 2px;
 	}
 	.lars-badge {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.3ch;
-		font-size: 0.7rem;
+		font-size: 0.65rem;
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
-		color: var(--color-bg);
-		background: var(--color-text-primary);
+		color: #000;
+		background: #fff;
 		border-radius: 3px;
 		padding: 2px 6px;
-		margin-top: 4px;
 		width: fit-content;
 	}
 </style>

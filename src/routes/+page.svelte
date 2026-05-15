@@ -40,7 +40,7 @@
 		</div>
 		<p in:fade={{ duration: 200, delay: 80 }}>
 			Self-taught software developer based in Sweden's countryside, close to Borås, constantly
-			tinkering on my house and what I find fun software. Currently working as a team leader
+			tinkering on my house and what I find fun software. Building Lars and currently working as a team leader
 			@Rudholm Technology AB.
 		</p>
 		<a
