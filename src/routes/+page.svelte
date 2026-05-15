@@ -7,6 +7,7 @@
 	import Image from '../components/Image.svelte';
 	import Me from '../components/Me.svelte';
 	import Dialog from '../components/Dialog.svelte';
+	import { stagger } from '../utils/stagger';
 
 	$: allSame = false;
 	$: appsProjects = projects.filter((p) => p.category === 'apps').sort((a, b) => b.date - a.date);
@@ -22,7 +23,7 @@
 </svelte:head>
 
 <div class="container">
-	<div class="me">
+	<div class="me" use:stagger data-stagger>
 		<Me />
 		<h1 class="primary">
 			<Dialog
@@ -30,48 +31,56 @@
 			/>
 		</h1>
 	</div>
-	<p>
+	<p use:stagger data-stagger>
 		Self-taught software developer based in Sweden's countryside, close to Borås, constantly
 		tinkering on my house and what I find fun software. Currently working as a team leader @Rudholm
 		Technology AB.
 	</p>
-	<a href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/">
+	<a use:stagger data-stagger href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/">
 		Reach out to me on LinkedIn
 	</a>
 	<div class="breakout pt-2">
-		<h2 class="primary">Apps</h2>
-		<div class="project-grid">
-			{#each appsProjects as project}
-				<Project {project} />
-			{/each}
+		<div use:stagger data-stagger>
+			<h2 class="primary">Apps</h2>
+			<div class="project-grid">
+				{#each appsProjects as project}
+					<Project {project} />
+				{/each}
+			</div>
 		</div>
 
-		<h2 class="primary">Wacky</h2>
-		<div class="project-grid">
-			{#each wackyProjects as project}
-				<Project {project} />
-			{/each}
+		<div use:stagger data-stagger>
+			<h2 class="primary">Wacky</h2>
+			<div class="project-grid">
+				{#each wackyProjects as project}
+					<Project {project} />
+				{/each}
+			</div>
 		</div>
 
-		<h2 class="primary">Boring websites</h2>
-		<div class="project-grid">
-			{#each boringProjects as project}
-				<Project {project} />
-			{/each}
+		<div use:stagger data-stagger>
+			<h2 class="primary">Boring websites</h2>
+			<div class="project-grid">
+				{#each boringProjects as project}
+					<Project {project} />
+				{/each}
+			</div>
 		</div>
 
-		<h2 class="primary">Cute pictures of my dog</h2>
-		<div class="project-grid">
-			{#each { length: 3 } as _, i}
-				<Image
-					onChange={() => {
-						allSame = allImagesSame();
-					}}
-					{allSame}
-					index={i}
-					image={getRandomImage(i)}
-				/>
-			{/each}
+		<div use:stagger data-stagger>
+			<h2 class="primary">Cute pictures of my dog</h2>
+			<div class="project-grid">
+				{#each { length: 3 } as _, i}
+					<Image
+						onChange={() => {
+							allSame = allImagesSame();
+						}}
+						{allSame}
+						index={i}
+						image={getRandomImage(i)}
+					/>
+				{/each}
+			</div>
 		</div>
 	</div>
 
