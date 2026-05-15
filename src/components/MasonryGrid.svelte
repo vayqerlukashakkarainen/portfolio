@@ -35,7 +35,6 @@
 		flex: 1 1 200px;
 		max-height: 240px;
 		overflow: hidden;
-		border-radius: 4px;
 		border: 1px solid var(--color-border);
 		background: var(--color-border);
 	}

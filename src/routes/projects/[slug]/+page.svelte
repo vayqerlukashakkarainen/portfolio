@@ -173,12 +173,6 @@
 		color: var(--color-text-secondary);
 	}
 
-	hr {
-		border: none;
-		border-top: 1px solid var(--color-border);
-		margin: 1rem 0;
-	}
-
 	.resources {
 		display: flex;
 		gap: 2rem;
