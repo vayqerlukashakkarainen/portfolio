@@ -1,7 +1,3 @@
-<script>
-	import MediaGallery from '../MediaGallery.svelte';
-</script>
-
 <h4>About</h4>
 <p>
 	A road trip platform designed for Swedes to explore their own country first. It featured
@@ -19,8 +15,47 @@
 </p>
 <h4>What I learned</h4>
 <p>
-	Keep it simple—don’t overcomplicate things, and definitely don’t use three different tech stacks
+	Keep it simple—don't overcomplicate things, and definitely don't use three different tech stacks
 	for cross-platform development when you are a single developer!
 </p>
 
-<MediaGallery slug="vayqer" />
+<div class="media">
+	<div class="media-full">
+		<video controls playsinline style="width:100%">
+			<source src="/images/vayqer/video2.mp4" type="video/mp4" />
+		</video>
+	</div>
+	<div class="media-row3">
+		<img src="/images/vayqer/img1.png" alt="" loading="lazy" />
+		<img src="/images/vayqer/img2.png" alt="" loading="lazy" />
+		<img src="/images/vayqer/img3.png" alt="" loading="lazy" />
+	</div>
+</div>
+
+<style>
+	.media {
+		margin-top: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		overflow: hidden;
+		border-radius: 4px;
+	}
+	.media-full video {
+		width: 100%;
+		display: block;
+		border-radius: 4px;
+	}
+	.media-row3 {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+	}
+	.media-row3 img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 4px;
+		display: block;
+	}
+</style>

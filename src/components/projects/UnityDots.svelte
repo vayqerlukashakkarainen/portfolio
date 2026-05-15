@@ -1,17 +1,13 @@
-<script>
-	import MediaGallery from '../MediaGallery.svelte';
-</script>
-
 <h4>About</h4>
 <p>
 	As I started exploring Unity DOTS, I wanted to create a simple behavior tree to take advantage of
-	the burst compiler’s performance. After plenty of trial and error, a (very simple) prototype
+	the burst compiler's performance. After plenty of trial and error, a (very simple) prototype
 	finally came to life.
 </p>
 <h4>Challenges</h4>
 <p>
 	DOTS and ECS operate on a different level than regular C#, making them a huge challenge to work
-	with initally. Since DOTS doesn’t use classic C# references as classes (only structs), converting
+	with initally. Since DOTS doesn't use classic C# references as classes (only structs), converting
 	a behavior tree into simple types and making it work within the burst compiler was probably the
 	toughest hurdle to overcome.
 </p>
@@ -28,6 +24,10 @@
 	>
 </div>
 
+<div class="media">
+	<img src="/images/unity-bt/img1.png" alt="" loading="lazy" />
+</div>
+
 <style>
 	.links {
 		display: flex;
@@ -36,6 +36,14 @@
 	.links > a {
 		color: var(--color);
 	}
+	.media {
+		margin-top: 1.5rem;
+		border-radius: 4px;
+		overflow: hidden;
+	}
+	.media img {
+		width: 100%;
+		display: block;
+		border-radius: 4px;
+	}
 </style>
-
-<MediaGallery slug="bt-dots" />

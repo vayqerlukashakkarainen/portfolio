@@ -1,7 +1,3 @@
-<script>
-	import MediaGallery from '../MediaGallery.svelte';
-</script>
-
 <h4>About</h4>
 <p>
 	From the start, I envisioned this as a settlement-building game (I have a soft spot for these). To
@@ -29,4 +25,40 @@
 	blender.
 </p>
 
-<MediaGallery slug="unity-environment" />
+<div class="media">
+	<div class="media-full">
+		<img src="/images/unity-environment/img1.png" alt="" loading="lazy" />
+	</div>
+	<div class="media-row2">
+		<img src="/images/unity-environment/img2.png" alt="" loading="lazy" />
+		<img src="/images/unity-environment/img3.png" alt="" loading="lazy" />
+	</div>
+</div>
+
+<style>
+	.media {
+		margin-top: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		overflow: hidden;
+		border-radius: 4px;
+	}
+	.media-full img {
+		width: 100%;
+		display: block;
+		border-radius: 4px;
+	}
+	.media-row2 {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
+	}
+	.media-row2 img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 4px;
+		display: block;
+	}
+</style>
