@@ -3,9 +3,13 @@
 	import { type Project } from '$lib/project';
 	import Icon from '@iconify/svelte';
 	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data: Project;
+
+	let mounted = false;
+	onMount(() => (mounted = true));
 </script>
 
 <svelte:head>
@@ -13,6 +17,7 @@
 </svelte:head>
 
 <div class="page">
+{#if mounted}
 	<a class="back" in:fade={{ duration: 200, delay: 0 }} href={`${base}/`}>
 		<Icon icon="mdi:arrow-left" /> Back
 	</a>
@@ -88,6 +93,7 @@
 			</a>
 		{/if}
 	</footer>
+{/if}
 </div>
 
 <style>

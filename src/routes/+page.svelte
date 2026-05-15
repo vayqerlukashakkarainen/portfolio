@@ -7,6 +7,10 @@
 	import Me from '../components/Me.svelte';
 	import Dialog from '../components/Dialog.svelte';
 	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
+	let mounted = false;
+	onMount(() => (mounted = true));
 
 	$: allSame = false;
 	$: appsProjects = projects.filter((p) => p.category === 'apps').sort((a, b) => b.date - a.date);
@@ -25,6 +29,7 @@
 </svelte:head>
 
 <div class="container">
+{#if mounted}
 	<div class="me" in:fade={{ duration: 200, delay: 0 }}>
 		<Me />
 		<h1 class="primary">
@@ -125,6 +130,7 @@
 		</div>
 		<p>Site made using SvelteKit</p>
 	</footer>
+{/if}
 </div>
 
 <style>
