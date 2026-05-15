@@ -5,20 +5,43 @@
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import MasonryGrid from '../../../components/MasonryGrid.svelte';
+	import Lightbox from '../../../components/Lightbox.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data: Project;
 
 	let mounted = false;
 	onMount(() => (mounted = true));
+
+	let lightboxImages: string[] = [];
+	let lightboxIndex = 0;
+	let lightboxOpen = false;
+
+	function handleImageClick(e: MouseEvent) {
+		const target = e.target as HTMLElement;
+		if (target.tagName !== 'IMG') return;
+
+		const allImgs = Array.from(document.querySelectorAll<HTMLImageElement>('.page img'));
+		lightboxImages = allImgs.map((img) => img.src);
+		lightboxIndex = allImgs.indexOf(target as HTMLImageElement);
+		lightboxOpen = true;
+	}
 </script>
 
 <svelte:head>
 	<title>{data.title} — Lukas Hakkarainen</title>
 </svelte:head>
 
-<div class="page">
+<div class="page" on:click={handleImageClick}>
 	{#if mounted}
+		{#if lightboxOpen}
+			<Lightbox
+				images={lightboxImages}
+				index={lightboxIndex}
+				onClose={() => (lightboxOpen = false)}
+			/>
+		{/if}
+
 		<div class="sticky-top" in:fade={{ duration: 200, delay: 0 }}>
 			<a class="back" href={`${base}/`}>
 				<Icon icon="mdi:arrow-left" /> Back
@@ -189,6 +212,10 @@
 	}
 	.resource-icons a:hover {
 		color: var(--color-accent);
+	}
+
+	.content :global(img) {
+		cursor: zoom-in;
 	}
 
 	.content :global(h4) {

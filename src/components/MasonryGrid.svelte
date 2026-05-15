@@ -1,43 +1,19 @@
 <script lang="ts">
 	import { base } from '$app/paths';
 	import { extractProjectImages, isImage, isVideo, removeStaticDir } from '$lib/project';
-	import Lightbox from './Lightbox.svelte';
 
 	export let slug: string;
 
 	const rawImgs = extractProjectImages(slug, 12);
-
-	// Deduplicate and resolve srcs (they are plain strings, not real Promises)
 	$: resolved = [...new Set(rawImgs.filter(Boolean))];
-	$: imageOnly = resolved.filter(isImage);
-
-	let lightboxOpen = false;
-	let lightboxIndex = 0;
-
-	function openLightbox(src: string) {
-		lightboxIndex = imageOnly.indexOf(src);
-		lightboxOpen = true;
-	}
 </script>
-
-{#if lightboxOpen}
-	<Lightbox
-		images={imageOnly.map((s) => `${base}/${removeStaticDir(s)}`)}
-		index={lightboxIndex}
-		onClose={() => (lightboxOpen = false)}
-	/>
-{/if}
 
 <div class="grid">
 	{#each resolved as src}
 		{#if isImage(src)}
-			<button
-				class="item clickable"
-				on:click={() => openLightbox(src)}
-				aria-label="Open image full size"
-			>
+			<div class="item clickable">
 				<img src={`${base}/${removeStaticDir(src)}`} alt="project screenshot" />
-			</button>
+			</div>
 		{:else if isVideo(src)}
 			<div class="item">
 				<video playsinline autoplay muted loop>
@@ -62,7 +38,6 @@
 		border-radius: 4px;
 		border: 1px solid var(--color-border);
 		background: var(--color-border);
-		padding: 0;
 	}
 
 	.item.clickable {
@@ -74,10 +49,6 @@
 	.item.clickable:hover {
 		border-color: var(--color-text-primary);
 		box-shadow: 2px 2px 0 var(--color-text-primary);
-	}
-	.item.clickable:focus-visible {
-		outline: 2px solid var(--color-accent, var(--color-text-primary));
-		outline-offset: 2px;
 	}
 
 	img,
