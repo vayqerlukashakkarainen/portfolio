@@ -1,3 +1,7 @@
+<script>
+	import MediaGallery from '../MediaGallery.svelte';
+</script>
+
 <h4>About</h4>
 <p>
 	I started developing a game that encourages players to explore real-world locations, interacting
@@ -18,6 +22,8 @@
 </div>
 <h4>Challenges</h4>
 <p>Nothing yet (as of March 2025), but I want to develop my own shaders for ThreeJS!</p>
+
+<MediaGallery slug="cartopia" />
 
 <style>
 	.links {
