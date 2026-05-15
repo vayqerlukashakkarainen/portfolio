@@ -11,6 +11,7 @@ import IconCreator from '../components/projects/IconCreator.svelte';
 import FaqBlock from '../components/projects/FaqBlock.svelte';
 import GiftcardBlock from '../components/projects/GiftcardBlock.svelte';
 import WpLarsApi from '../components/projects/WpLarsApi.svelte';
+import Mindmap from '../components/projects/Mindmap.svelte';
 
 export type Category = 'wacky' | 'apps' | 'boringWebsites' | 'wordpress';
 
@@ -468,6 +469,38 @@ export const projects: Project[] = [
 					icon: 'mdi:image-edit',
 					url: 'https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API'
 				}
+			]
+		}
+	},
+	{
+		title: 'Mindmap',
+		description:
+			'Standalone browser-based mind mapping tool with bezier edges and multi-map persistence',
+		icon: '',
+		date: 2025,
+		category: 'apps',
+		url: 'projects/',
+		isExternalUrl: false,
+		slug: 'mindmap',
+		website: 'https://mindmap.luhakk.com',
+		appUrl: 'https://mindmap.luhakk.com',
+		pageContent: {
+			description: Mindmap,
+			appRes: [
+				{ text: 'Live App', icon: 'mdi:open-in-new', url: 'https://mindmap.luhakk.com' },
+				{
+					text: 'GitHub',
+					icon: 'mdi:github',
+					url: 'https://github.com/vayqerlukashakkarainen/mindmap'
+				}
+			],
+			devRes: [
+				{
+					text: 'TypeScript',
+					icon: 'mdi:language-javascript',
+					url: 'https://www.typescriptlang.org/'
+				},
+				{ text: 'Vite', icon: 'simple-icons:svelte', url: 'https://vitejs.dev/' }
 			]
 		}
 	}
