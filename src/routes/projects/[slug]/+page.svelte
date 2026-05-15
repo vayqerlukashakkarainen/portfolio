@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { type Project } from '$lib/project';
+	import { type Project, anyMediaInProject } from '$lib/project';
 	import Icon from '@iconify/svelte';
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import MasonryGrid from '../../../components/MasonryGrid.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data: Project;
@@ -80,6 +81,12 @@
 
 			<div class="content" in:fade={{ duration: 200, delay: 200 }}>
 				<svelte:component this={data.pageContent.description} />
+			</div>
+		{/if}
+
+		{#if anyMediaInProject(data.slug).anyMedia}
+			<div class="gallery" in:fade={{ duration: 200, delay: 320 }}>
+				<MasonryGrid slug={data.slug} />
 			</div>
 		{/if}
 
@@ -202,6 +209,10 @@
 		margin-top: 1.5rem;
 		line-height: 1.75;
 		color: var(--color-text-secondary);
+	}
+
+	.gallery {
+		margin-top: 2.5rem;
 	}
 
 	footer {
