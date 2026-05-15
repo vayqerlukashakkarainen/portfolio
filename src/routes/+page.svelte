@@ -176,7 +176,7 @@
 	.me h1 {
 		margin-top: -82px;
 		font-size: calc(1vw + 42px);
-		filter: drop-shadow(2px 4px 6px #00000087);
+
 		height: 160px;
 	}
 	.yay {
