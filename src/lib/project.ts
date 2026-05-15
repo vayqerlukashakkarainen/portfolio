@@ -8,6 +8,9 @@ import ScrollSite from '../components/projects/ScrollSite.svelte';
 import Environment from '../components/projects/Environment.svelte';
 import TwodLandz from '../components/projects/2dlandz.svelte';
 import IconCreator from '../components/projects/IconCreator.svelte';
+import FaqBlock from '../components/projects/FaqBlock.svelte';
+import GiftcardBlock from '../components/projects/GiftcardBlock.svelte';
+import WpLarsApi from '../components/projects/WpLarsApi.svelte';
 
 export type Category = 'wacky' | 'apps' | 'boringWebsites' | 'wordpress';
 
@@ -374,6 +377,66 @@ export const projects: Project[] = [
 		isExternalUrl: true,
 		slug: 'ncompat',
 		bgImg: 'images/ncompat/img1.png'
+	},
+	{
+		title: 'FAQ Block',
+		description: 'Collapsible FAQ Gutenberg block with parent/child block architecture',
+		icon: '',
+		date: 2025,
+		category: 'boringWebsites',
+		url: 'projects/',
+		isExternalUrl: false,
+		slug: 'faq-block',
+		pageContent: {
+			description: FaqBlock,
+			devRes: [
+				{ text: 'WordPress', icon: 'mdi:wordpress', url: 'https://wordpress.org/' },
+				{
+					text: 'JavaScript',
+					icon: 'mdi:language-javascript',
+					url: 'https://developer.mozilla.org/'
+				}
+			]
+		}
+	},
+	{
+		title: 'Giftcard Block',
+		description: 'WooCommerce gift card plugin with configurable denominations and option groups',
+		icon: '',
+		date: 2025,
+		category: 'boringWebsites',
+		url: 'projects/',
+		isExternalUrl: false,
+		slug: 'giftcard-block',
+		pageContent: {
+			description: GiftcardBlock,
+			devRes: [
+				{ text: 'WordPress', icon: 'mdi:wordpress', url: 'https://wordpress.org/' },
+				{
+					text: 'WooCommerce',
+					icon: 'simple-icons:woocommerce',
+					url: 'https://woocommerce.com/'
+				},
+				{ text: 'PHP', icon: 'simple-icons:php', url: 'https://www.php.net/' }
+			]
+		}
+	},
+	{
+		title: 'WP Lars API',
+		description: 'WordPress REST API extension powering the Lars WordPress MCP app',
+		icon: '',
+		date: 2025,
+		category: 'boringWebsites',
+		url: 'projects/',
+		isExternalUrl: false,
+		slug: 'wp-lars-api',
+		pageContent: {
+			description: WpLarsApi,
+			devRes: [
+				{ text: 'WordPress', icon: 'mdi:wordpress', url: 'https://wordpress.org/' },
+				{ text: 'PHP', icon: 'simple-icons:php', url: 'https://www.php.net/' }
+			]
+		}
 	},
 	{
 		title: 'Icon creator',
