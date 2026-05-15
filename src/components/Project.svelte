@@ -43,8 +43,6 @@
 		flex-direction: row;
 		position: relative;
 		overflow: hidden;
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
 		transition:
 			box-shadow 200ms ease,
 			border-color 200ms ease;

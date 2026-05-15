@@ -9,7 +9,7 @@ import Environment from '../components/projects/Environment.svelte';
 import TwodLandz from '../components/projects/2dlandz.svelte';
 import IconCreator from '../components/projects/IconCreator.svelte';
 
-export type Category = 'wacky' | 'apps' | 'boringWebsites';
+export type Category = 'wacky' | 'apps' | 'boringWebsites' | 'wordpress';
 
 interface Resource {
 	text: string;

@@ -15,6 +15,9 @@
 	$: boringProjects = projects
 		.filter((p) => p.category === 'boringWebsites')
 		.sort((a, b) => b.date - a.date);
+	$: wordpressProjects = projects
+		.filter((p) => p.category === 'wordpress')
+		.sort((a, b) => b.date - a.date);
 </script>
 
 <svelte:head>
@@ -68,6 +71,15 @@
 		</div>
 
 		<div use:stagger data-stagger>
+			<h2 class="primary">WordPress</h2>
+			<div class="project-grid">
+				{#each wordpressProjects as project}
+					<Project {project} />
+				{/each}
+			</div>
+		</div>
+
+		<div use:stagger data-stagger>
 			<h2 class="primary">Cute pictures of my dog</h2>
 			<div class="project-grid">
 				{#each { length: 3 } as _, i}
@@ -108,10 +120,10 @@
 		padding-top: calc(1.5vw + 100px);
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 		gap: 0;
 		padding-bottom: 60px;
-		text-align: center;
+		text-align: left;
 	}
 	.me h1 {
 		margin-top: -82px;
