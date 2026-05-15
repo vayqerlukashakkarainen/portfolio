@@ -1,3 +1,7 @@
+<script>
+	import MediaGallery from '../MediaGallery.svelte';
+</script>
+
 <h4>About</h4>
 <p>
 	From the start, I envisioned this as a settlement-building game (I have a soft spot for these). To
@@ -24,3 +28,5 @@
 	I learned a lot from this project. LUT (Look up tables), weight based algorithms, modelling in
 	blender.
 </p>
+
+<MediaGallery slug="unity-environment" />

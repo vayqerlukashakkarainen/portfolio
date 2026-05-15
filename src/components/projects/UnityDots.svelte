@@ -1,3 +1,7 @@
+<script>
+	import MediaGallery from '../MediaGallery.svelte';
+</script>
+
 <h4>About</h4>
 <p>
 	As I started exploring Unity DOTS, I wanted to create a simple behavior tree to take advantage of
@@ -33,3 +37,5 @@
 		color: var(--color);
 	}
 </style>
+
+<MediaGallery slug="bt-dots" />

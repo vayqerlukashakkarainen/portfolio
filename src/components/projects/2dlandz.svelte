@@ -1,3 +1,7 @@
+<script>
+	import MediaGallery from '../MediaGallery.svelte';
+</script>
+
 <h4>About</h4>
 <p>
 	My first real main project when I was 17, the codes still lives today and probably in the shape
@@ -15,3 +19,5 @@
 	What you can expect to learn during a Game development class in your seventeen. Game loop, what
 	makes a game fun, state handling etc. The basics!
 </p>
+
+<MediaGallery slug="2d-landz" />

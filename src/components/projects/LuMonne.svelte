@@ -1,3 +1,7 @@
+<script>
+	import MediaGallery from '../MediaGallery.svelte';
+</script>
+
 <h4>About</h4>
 <p>
 	This project started as a request from my partner for an e-commerce site. I chose WordPress and
@@ -6,3 +10,5 @@
 </p>
 <h4>Challenges</h4>
 <p>Meeting my partner’s standards and expectations, while making sure not to let her down. :)</p>
+
+<MediaGallery slug="lu-monne" />

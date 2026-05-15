@@ -1,3 +1,7 @@
+<script>
+	import MediaGallery from '../MediaGallery.svelte';
+</script>
+
 <h4>About</h4>
 <p>
 	A simple mobile app that suggests random movies or TV shows to watch. It uses the TMDb (The Movie
@@ -16,3 +20,5 @@
 </p>
 <h4>What I learned</h4>
 <p>Nothing really, just a fun experience. Not everything has be about learning :)</p>
+
+<MediaGallery slug="smam" />

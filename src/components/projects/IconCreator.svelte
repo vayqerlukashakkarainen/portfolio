@@ -1,3 +1,7 @@
+<script>
+	import MediaGallery from '../MediaGallery.svelte';
+</script>
+
 <h4>About</h4>
 <p>
 	A fully client-side web tool to convert images to native app icon formats (ICO, ICNS, PNG) with
@@ -28,3 +32,5 @@
 
 <h4>Challenges</h4>
 <p>Nothing, since it was vibe coded</p>
+
+<MediaGallery slug="icon-creator" />

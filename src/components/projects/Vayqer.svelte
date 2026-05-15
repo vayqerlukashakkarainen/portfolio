@@ -1,3 +1,7 @@
+<script>
+	import MediaGallery from '../MediaGallery.svelte';
+</script>
+
 <h4>About</h4>
 <p>
 	A road trip platform designed for Swedes to explore their own country first. It featured
@@ -18,3 +22,5 @@
 	Keep it simple—don’t overcomplicate things, and definitely don’t use three different tech stacks
 	for cross-platform development when you are a single developer!
 </p>
+
+<MediaGallery slug="vayqer" />
