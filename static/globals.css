@@ -87,13 +87,16 @@ p {
 }
 
 .project-grid {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 12px;
-	justify-content: flex-start;
-	flex-wrap: wrap;
-	align-items: center;
 	padding-bottom: 32px;
-	box-sizing: content-box;
+}
+
+@media (max-width: 600px) {
+	.project-grid {
+		grid-template-columns: 1fr;
+	}
 }
 
 .project {
@@ -103,9 +106,7 @@ p {
 	text-align: start;
 	border-radius: 0;
 	border: 1px solid var(--color-border);
-	border-left: 3px solid var(--color, var(--color-border));
 	padding: 16px;
-	max-width: 250px;
 	height: fit-content;
 	transition:
 		border-color 200ms ease,
@@ -125,17 +126,11 @@ p {
 	padding: 0;
 }
 
-.apps {
-	--color: #2563eb;
-}
-.wacky {
-	--color: #dc2626;
-}
-.boringWebsites {
-	--color: #16a34a;
-}
+.apps,
+.wacky,
+.boringWebsites,
 .wordpress {
-	--color: #3b82f6;
+	/* category colour accents removed */
 }
 
 footer {

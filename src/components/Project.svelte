@@ -8,10 +8,20 @@
 
 <a
 	class={`project ${project.category}`}
-	style={!isVideo(project.bgImg ?? '') ? `background-image: url(${base}/${project.bgImg})` : ''}
 	href={project.isExternalUrl ? project.url : `${base}/` + project.url + project.slug}
 	target={project.isExternalUrl ? '_blank' : '_self'}
 >
+	<div class="media">
+		{#if isVideo(project.bgImg ?? '')}
+			<video playsInline autoplay muted loop>
+				<source src={`${base}/${project.bgImg}`} type="video/mp4" />
+			</video>
+		{:else if project.bgImg}
+			<img src={`${base}/${project.bgImg}`} alt={project.title} />
+		{:else}
+			<div class="media-placeholder"></div>
+		{/if}
+	</div>
 	<div class="content">
 		<div class="header">
 			<h3>{project.title}</h3>
@@ -19,40 +29,55 @@
 				<Icon icon="gridicons:external" />
 			{/if}
 		</div>
-
 		<p>{project.description}</p>
 		{#if project.wip}
 			<span class="in-dev">IN PROGRESS</span>
 		{/if}
 	</div>
-	{#if isVideo(project.bgImg ?? '')}
-		<video playsInline={true} autoPlay={true} muted={true} loop={true}>
-			<source src={`${base}/${project.bgImg}`} type="video/mp4" />
-		</video>
-	{/if}
 </a>
 
 <style>
-	video {
-		position: absolute;
-		inset: -22px;
-		min-width: calc(100% + 44px);
-		height: calc(100% + 44px);
+	a {
+		text-decoration: none;
+		display: flex;
+		flex-direction: row;
+		position: relative;
+		overflow: hidden;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		transition:
+			box-shadow 200ms ease,
+			border-color 200ms ease;
 	}
-	.project {
-		padding: 0;
+	a:hover {
+		border-color: var(--color-text-primary);
+		box-shadow: 4px 4px 0 var(--color-text-primary);
 	}
-	.project:not(.active):hover {
-		background-position: 10% 20%;
+	.media {
+		width: 160px;
+		min-width: 160px;
+		height: 140px;
+		overflow: hidden;
+		flex-shrink: 0;
 	}
-
+	.media img,
+	.media video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+	.media-placeholder {
+		width: 100%;
+		height: 100%;
+		background-color: var(--color-border);
+	}
 	.content {
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
-		position: relative;
-		z-index: 1;
+		gap: 4px;
 		padding: 16px;
+		justify-content: center;
 	}
 	.header {
 		display: flex;
@@ -60,14 +85,14 @@
 		align-items: center;
 		color: var(--color-text-primary);
 	}
-	a {
-		text-decoration: none;
-		height: 220px;
-		display: flex;
-		justify-content: end;
-		background-size: cover;
-		background-position: 0%;
-		position: relative;
-		overflow: hidden;
+	h3 {
+		margin: 0;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+	p {
+		margin: 0;
+		font-size: 0.85rem;
+		color: var(--color-text-secondary);
 	}
 </style>
