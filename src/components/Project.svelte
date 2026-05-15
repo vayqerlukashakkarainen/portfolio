@@ -2,14 +2,11 @@
 	import { isVideo, type Project } from '$lib/project';
 	import Icon from '@iconify/svelte';
 	import { base } from '$app/paths';
-	import { stagger } from '../utils/stagger';
 
 	export let project: Project;
 </script>
 
 <a
-	use:stagger
-	data-stagger
 	class={`project ${project.category}`}
 	href={project.isExternalUrl ? project.url : `${base}/` + project.url + project.slug}
 	target={project.isExternalUrl ? '_blank' : '_self'}

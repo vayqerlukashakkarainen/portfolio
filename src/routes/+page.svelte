@@ -1,5 +1,4 @@
 <script>
-	import { base } from '$app/paths';
 	import { projects } from '$lib/project';
 	import { allImagesSame, getRandomImage } from '$lib/images';
 	import Icon from '@iconify/svelte';
@@ -7,7 +6,7 @@
 	import Image from '../components/Image.svelte';
 	import Me from '../components/Me.svelte';
 	import Dialog from '../components/Dialog.svelte';
-	import { stagger } from '../utils/stagger';
+	import { fade } from 'svelte/transition';
 
 	$: allSame = false;
 	$: appsProjects = projects.filter((p) => p.category === 'apps').sort((a, b) => b.date - a.date);
@@ -26,7 +25,7 @@
 </svelte:head>
 
 <div class="container">
-	<div class="me" use:stagger data-stagger>
+	<div class="me" in:fade={{ duration: 200, delay: 0 }}>
 		<Me />
 		<h1 class="primary">
 			<Dialog
@@ -34,63 +33,76 @@
 			/>
 		</h1>
 	</div>
-	<p use:stagger data-stagger>
+	<p in:fade={{ duration: 200, delay: 80 }}>
 		Self-taught software developer based in Sweden's countryside, close to Borås, constantly
 		tinkering on my house and what I find fun software. Currently working as a team leader @Rudholm
 		Technology AB.
 	</p>
-	<a use:stagger data-stagger href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/">
+	<a
+		in:fade={{ duration: 200, delay: 160 }}
+		href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
+	>
 		Reach out to me on LinkedIn
 	</a>
 	<div class="breakout pt-2">
-		<div use:stagger data-stagger>
+		<div in:fade={{ duration: 200, delay: 240 }}>
 			<h2 class="primary">Apps</h2>
-			<div class="project-grid" data-stagger-scope>
-				{#each appsProjects as project}
-					<Project {project} />
+			<div class="project-grid">
+				{#each appsProjects as project, i}
+					<div in:fade={{ duration: 200, delay: i * 60 }}>
+						<Project {project} />
+					</div>
 				{/each}
 			</div>
 		</div>
 
-		<div use:stagger data-stagger>
+		<div in:fade={{ duration: 200, delay: 320 }}>
 			<h2 class="primary">Wacky</h2>
-			<div class="project-grid" data-stagger-scope>
-				{#each wackyProjects as project}
-					<Project {project} />
+			<div class="project-grid">
+				{#each wackyProjects as project, i}
+					<div in:fade={{ duration: 200, delay: i * 60 }}>
+						<Project {project} />
+					</div>
 				{/each}
 			</div>
 		</div>
 
-		<div use:stagger data-stagger>
+		<div in:fade={{ duration: 200, delay: 400 }}>
 			<h2 class="primary">Boring websites</h2>
-			<div class="project-grid" data-stagger-scope>
-				{#each boringProjects as project}
-					<Project {project} />
+			<div class="project-grid">
+				{#each boringProjects as project, i}
+					<div in:fade={{ duration: 200, delay: i * 60 }}>
+						<Project {project} />
+					</div>
 				{/each}
 			</div>
 		</div>
 
-		<div use:stagger data-stagger>
+		<div in:fade={{ duration: 200, delay: 480 }}>
 			<h2 class="primary">WordPress</h2>
-			<div class="project-grid" data-stagger-scope>
-				{#each wordpressProjects as project}
-					<Project {project} />
+			<div class="project-grid">
+				{#each wordpressProjects as project, i}
+					<div in:fade={{ duration: 200, delay: i * 60 }}>
+						<Project {project} />
+					</div>
 				{/each}
 			</div>
 		</div>
 
-		<div use:stagger data-stagger>
+		<div in:fade={{ duration: 200, delay: 560 }}>
 			<h2 class="primary">Cute pictures of my dog</h2>
-			<div class="project-grid" data-stagger-scope>
+			<div class="project-grid">
 				{#each { length: 3 } as _, i}
-					<Image
-						onChange={() => {
-							allSame = allImagesSame();
-						}}
-						{allSame}
-						index={i}
-						image={getRandomImage(i)}
-					/>
+					<div in:fade={{ duration: 200, delay: i * 60 }}>
+						<Image
+							onChange={() => {
+								allSame = allImagesSame();
+							}}
+							{allSame}
+							index={i}
+							image={getRandomImage(i)}
+						/>
+					</div>
 				{/each}
 			</div>
 		</div>

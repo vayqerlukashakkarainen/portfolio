@@ -2,7 +2,7 @@
 	import { base } from '$app/paths';
 	import { type Project } from '$lib/project';
 	import Icon from '@iconify/svelte';
-	import { stagger } from '../../../utils/stagger';
+	import { fade } from 'svelte/transition';
 
 	/** @type {import('./$types').PageData} */
 	export let data: Project;
@@ -13,11 +13,11 @@
 </svelte:head>
 
 <div class="page">
-	<a class="back" use:stagger data-stagger href={`${base}/`}>
+	<a class="back" in:fade={{ duration: 200, delay: 0 }} href={`${base}/`}>
 		<Icon icon="mdi:arrow-left" /> Back
 	</a>
 
-	<header use:stagger data-stagger>
+	<header in:fade={{ duration: 200, delay: 80 }}>
 		<div class="title-row">
 			<h1>{data.title}</h1>
 			<span class="year">{data.date}</span>
@@ -30,7 +30,7 @@
 
 	{#if data.pageContent}
 		{#if data.pageContent.appRes || data.pageContent.devRes || data.pageContent.apiRes}
-			<div class="resources" use:stagger data-stagger>
+			<div class="resources" in:fade={{ duration: 200, delay: 160 }}>
 				{#if data.pageContent.appRes}
 					<div class="resource-group">
 						<span class="resource-label">Links</span>
@@ -71,12 +71,12 @@
 			<hr />
 		{/if}
 
-		<div class="content" use:stagger data-stagger>
+		<div class="content" in:fade={{ duration: 200, delay: 200 }}>
 			<svelte:component this={data.pageContent.description} />
 		</div>
 	{/if}
 
-	<footer use:stagger data-stagger>
+	<footer in:fade={{ duration: 200, delay: 280 }}>
 		{#if data.website}
 			<a href={data.website} target="_blank">
 				<Icon icon="mdi:open-in-new" /> Visit website
