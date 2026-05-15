@@ -28,7 +28,7 @@
 	<meta property="og:image" content={`https://luhakk.com/urlimg.png`} />
 </svelte:head>
 
-<div class="container">
+<div id="top" class="container">
 	{#if mounted}
 		<div class="me" in:fade={{ duration: 200, delay: 0 }}>
 			<Me />
@@ -51,7 +51,7 @@
 		</div>
 
 		<div class="breakout pt-2">
-			<div in:fade={{ duration: 200, delay: 240 }}>
+			<div id="apps" in:fade={{ duration: 200, delay: 240 }}>
 				<header class="category-header">
 					<h2>Apps</h2>
 					<p class="category-desc">Things you can actually use! Web apps, tools, and experiments</p>
@@ -65,7 +65,7 @@
 				</div>
 			</div>
 
-			<div in:fade={{ duration: 200, delay: 320 }}>
+			<div id="wacky" in:fade={{ duration: 200, delay: 320 }}>
 				<header class="category-header">
 					<h2>Wacky</h2>
 					<p class="category-desc">
@@ -81,7 +81,7 @@
 				</div>
 			</div>
 
-			<div in:fade={{ duration: 200, delay: 400 }}>
+			<div id="boring" in:fade={{ duration: 200, delay: 400 }}>
 				<header class="category-header">
 					<h2>Boring websites</h2>
 					<p class="category-desc">Clean, functional sites</p>
@@ -95,7 +95,7 @@
 				</div>
 			</div>
 
-			<div in:fade={{ duration: 200, delay: 480 }}>
+			<div id="wordpress" in:fade={{ duration: 200, delay: 480 }}>
 				<header class="category-header">
 					<h2>WordPress extensions</h2>
 					<p class="category-desc">Custom blocks and plugins built on top of WordPress</p>
@@ -109,7 +109,7 @@
 				</div>
 			</div>
 
-			<div in:fade={{ duration: 200, delay: 560 }}>
+			<div id="dog" in:fade={{ duration: 200, delay: 560 }}>
 				<header class="category-header">
 					<h2>Cute pictures of my dog</h2>
 					<p class="category-desc">Exactly what it says</p>
@@ -139,15 +139,32 @@
 			</div>
 		</div>
 		<footer class="pb-2">
-			<div class="icons">
-				<a target="_blank" href="https://github.com/vayqerlukashakkarainen"
-					><Icon icon="mdi:github" /></a
-				>
-				<a target="_blank" href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
-					><Icon icon="mdi:linkedin" /></a
-				>
+			<nav class="footer-nav">
+				<div class="footer-nav-group">
+					<span class="footer-nav-label">Pages</span>
+					<a href="#top">Home</a>
+					<a href="/lars">Lars</a>
+				</div>
+				<div class="footer-nav-group">
+					<span class="footer-nav-label">Categories</span>
+					<a href="#apps">Apps</a>
+					<a href="#wacky">Wacky</a>
+					<a href="#boring">Boring websites</a>
+					<a href="#wordpress">WordPress extensions</a>
+					<a href="#dog">Cute pictures of my dog</a>
+				</div>
+			</nav>
+			<div class="footer-bottom">
+				<div class="icons">
+					<a target="_blank" href="https://github.com/vayqerlukashakkarainen"
+						><Icon icon="mdi:github" /></a
+					>
+					<a target="_blank" href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
+						><Icon icon="mdi:linkedin" /></a
+					>
+				</div>
+				<p>Site made using SvelteKit</p>
 			</div>
-			<p>Site made using SvelteKit</p>
 		</footer>
 	{/if}
 </div>
@@ -251,6 +268,48 @@
 
 	.lars-link:hover {
 		text-decoration: underline;
+	}
+
+	.footer-nav {
+		display: flex;
+		gap: 3rem;
+		padding: 2rem 0 1.5rem;
+		border-top: 1px solid var(--color-border);
+		margin-top: 3rem;
+	}
+
+	.footer-nav-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.footer-nav-label {
+		font-size: 0.7rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		opacity: 0.5;
+		color: var(--color-text-primary);
+		margin-bottom: 0.25rem;
+	}
+
+	.footer-nav a {
+		font-size: 0.875rem;
+		color: var(--color-text-secondary);
+		text-decoration: none;
+	}
+
+	.footer-nav a:hover {
+		color: var(--color-text-primary);
+	}
+
+	.footer-bottom {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--color-border);
 	}
 
 	@keyframes rubber-band {
