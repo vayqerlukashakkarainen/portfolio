@@ -19,7 +19,7 @@
 		.filter((p) => p.category === 'boringWebsites')
 		.sort((a, b) => b.date - a.date);
 	$: wordpressProjects = projects
-		.filter((p) => p.category === 'wordpress')
+		.filter((p) => p.category === 'wordpressExtensions')
 		.sort((a, b) => b.date - a.date);
 </script>
 
@@ -100,7 +100,7 @@
 
 			<div in:fade={{ duration: 200, delay: 480 }}>
 				<header class="category-header">
-					<h2>WordPress</h2>
+					<h2>WordPress extensions</h2>
 				</header>
 				<hr />
 				<div class="project-grid">

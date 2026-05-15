@@ -13,7 +13,7 @@ import GiftcardBlock from '../components/projects/GiftcardBlock.svelte';
 import WpLarsApi from '../components/projects/WpLarsApi.svelte';
 import Mindmap from '../components/projects/Mindmap.svelte';
 
-export type Category = 'wacky' | 'apps' | 'boringWebsites' | 'wordpress';
+export type Category = 'wacky' | 'apps' | 'boringWebsites' | 'wordpressExtensions';
 
 interface Resource {
 	text: string;
@@ -386,7 +386,7 @@ export const projects: Project[] = [
 		description: 'Collapsible FAQ Gutenberg block with parent/child block architecture',
 		icon: '',
 		date: 2025,
-		category: 'boringWebsites',
+		category: 'wordpressExtensions',
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'faq-block',
@@ -408,7 +408,7 @@ export const projects: Project[] = [
 		description: 'WooCommerce gift card plugin with configurable denominations and option groups',
 		icon: '',
 		date: 2025,
-		category: 'boringWebsites',
+		category: 'wordpressExtensions',
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'giftcard-block',
@@ -431,7 +431,7 @@ export const projects: Project[] = [
 		description: 'WordPress REST API extension powering the Lars WordPress MCP app',
 		icon: '',
 		date: 2025,
-		category: 'boringWebsites',
+		category: 'wordpressExtensions',
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'wp-lars-api',
