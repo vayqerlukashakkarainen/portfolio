@@ -45,7 +45,7 @@
 	<div class="breakout pt-2">
 		<div use:stagger data-stagger>
 			<h2 class="primary">Apps</h2>
-			<div class="project-grid">
+			<div class="project-grid" data-stagger-scope>
 				{#each appsProjects as project}
 					<Project {project} />
 				{/each}
@@ -54,7 +54,7 @@
 
 		<div use:stagger data-stagger>
 			<h2 class="primary">Wacky</h2>
-			<div class="project-grid">
+			<div class="project-grid" data-stagger-scope>
 				{#each wackyProjects as project}
 					<Project {project} />
 				{/each}
@@ -63,7 +63,7 @@
 
 		<div use:stagger data-stagger>
 			<h2 class="primary">Boring websites</h2>
-			<div class="project-grid">
+			<div class="project-grid" data-stagger-scope>
 				{#each boringProjects as project}
 					<Project {project} />
 				{/each}
@@ -72,7 +72,7 @@
 
 		<div use:stagger data-stagger>
 			<h2 class="primary">WordPress</h2>
-			<div class="project-grid">
+			<div class="project-grid" data-stagger-scope>
 				{#each wordpressProjects as project}
 					<Project {project} />
 				{/each}
@@ -81,7 +81,7 @@
 
 		<div use:stagger data-stagger>
 			<h2 class="primary">Cute pictures of my dog</h2>
-			<div class="project-grid">
+			<div class="project-grid" data-stagger-scope>
 				{#each { length: 3 } as _, i}
 					<Image
 						onChange={() => {

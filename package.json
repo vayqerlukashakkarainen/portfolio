@@ -13,6 +13,8 @@
 		"gh-pages": "npm run build && gh-pages -d build -t"
 	},
 	"devDependencies": {
+		"@iconify-json/mdi": "^1.2.3",
+		"@iconify-json/simple-icons": "^1.2.82",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.0.0",
