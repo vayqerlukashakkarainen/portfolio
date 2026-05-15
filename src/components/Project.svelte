@@ -33,6 +33,9 @@
 		{#if project.wip}
 			<span class="in-dev">IN PROGRESS</span>
 		{/if}
+		{#if project.builtWithLars}
+			<span class="lars-badge">⚡ Built with Lars</span>
+		{/if}
 	</div>
 </a>
 
@@ -92,5 +95,20 @@
 		margin: 0;
 		font-size: 0.85rem;
 		color: var(--color-text-secondary);
+	}
+	.lars-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3ch;
+		font-size: 0.7rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--color-bg);
+		background: var(--color-text-primary);
+		border-radius: 3px;
+		padding: 2px 6px;
+		margin-top: 4px;
+		width: fit-content;
 	}
 </style>

@@ -40,6 +40,7 @@ export interface Project {
 	date: number;
 	bgImg?: string;
 	wip?: boolean;
+	builtWithLars?: boolean;
 	pageContent?: ProjectPageContent;
 }
 
@@ -252,6 +253,7 @@ export const projects: Project[] = [
 		url: 'https://scrollable.luhakk.com/',
 		isExternalUrl: true,
 		slug: 'scroll-page',
+		builtWithLars: true,
 		bgImg: 'images/scroll-page/scrollable.mp4',
 		pageContent: {
 			description: ScrollSite,
@@ -387,6 +389,7 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'faq-block',
+		builtWithLars: true,
 		pageContent: {
 			description: FaqBlock,
 			devRes: [
@@ -408,6 +411,7 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'giftcard-block',
+		builtWithLars: true,
 		pageContent: {
 			description: GiftcardBlock,
 			devRes: [
@@ -430,6 +434,7 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'wp-lars-api',
+		builtWithLars: true,
 		pageContent: {
 			description: WpLarsApi,
 			devRes: [
@@ -447,6 +452,7 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'icon-creator',
+		builtWithLars: true,
 		website: 'https://iconify.luhakk.com',
 		bgImg: 'images/icon-creator/img1.png',
 		pageContent: {
