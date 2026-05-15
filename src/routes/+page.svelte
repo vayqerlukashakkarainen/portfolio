@@ -40,8 +40,8 @@
 		</div>
 		<p in:fade={{ duration: 200, delay: 80 }}>
 			Self-taught software developer based in Sweden's countryside, close to Borås, constantly
-			tinkering on my house and what I find fun software. Building Lars and currently working as a team leader
-			@Rudholm Technology AB.
+			tinkering on my house and what I find fun software. Building Lars and currently working as a
+			team leader @Rudholm Technology AB.
 		</p>
 		<a
 			in:fade={{ duration: 200, delay: 120 }}
@@ -59,6 +59,9 @@
 			<div in:fade={{ duration: 200, delay: 240 }}>
 				<header class="category-header">
 					<h2>Apps</h2>
+					<p class="category-desc">
+						Things you can actually use — web apps, tools, and experiments
+					</p>
 				</header>
 				<hr />
 				<div class="project-grid">
@@ -73,6 +76,9 @@
 			<div in:fade={{ duration: 200, delay: 320 }}>
 				<header class="category-header">
 					<h2>Wacky</h2>
+					<p class="category-desc">
+						Odd ideas, creative hacks, and projects built mostly for the fun of it
+					</p>
 				</header>
 				<hr />
 				<div class="project-grid">
@@ -87,6 +93,7 @@
 			<div in:fade={{ duration: 200, delay: 400 }}>
 				<header class="category-header">
 					<h2>Boring websites</h2>
+					<p class="category-desc">Clean, functional sites — the kind clients actually ask for</p>
 				</header>
 				<hr />
 				<div class="project-grid">
@@ -101,6 +108,7 @@
 			<div in:fade={{ duration: 200, delay: 480 }}>
 				<header class="category-header">
 					<h2>WordPress extensions</h2>
+					<p class="category-desc">Custom blocks and plugins built on top of WordPress</p>
 				</header>
 				<hr />
 				<div class="project-grid">
@@ -115,6 +123,7 @@
 			<div in:fade={{ duration: 200, delay: 560 }}>
 				<header class="category-header">
 					<h2>Cute pictures of my dog</h2>
+					<p class="category-desc">Exactly what it says</p>
 				</header>
 				<hr />
 				<div class="project-grid">
@@ -203,6 +212,12 @@
 		font-size: 2rem;
 		font-weight: 600;
 		color: var(--color-text-primary);
+	}
+
+	.category-desc {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--color-text-secondary);
 	}
 
 	hr {
