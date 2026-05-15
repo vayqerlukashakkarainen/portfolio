@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import Icon from '@iconify/svelte';
 
 	let mounted = false;
 	onMount(() => (mounted = true));
@@ -130,6 +131,54 @@
 				</li>
 			</ul>
 		</section>
+
+		<section in:fade={{ duration: 200, delay: 540 }}>
+			<h2>Apps</h2>
+			<div class="app-grid">
+				<div class="app-card">
+					<div class="app-icon"><Icon icon="mdi:github" /></div>
+					<div class="app-info">
+						<span class="app-name">GitHub</span>
+						<span class="app-desc">Interact with repos, PRs, and issues. Review code, reply to comments, manage labels.</span>
+					</div>
+				</div>
+				<div class="app-card">
+					<div class="app-icon"><Icon icon="mdi:connection" /></div>
+					<div class="app-info">
+						<span class="app-name">MCP</span>
+						<span class="app-desc">Connect to any Model Context Protocol server and call its tools.</span>
+					</div>
+				</div>
+				<div class="app-card">
+					<div class="app-icon"><Icon icon="mdi:spotify" /></div>
+					<div class="app-info">
+						<span class="app-name">Spotify</span>
+						<span class="app-desc">Control playback, search tracks, manage playlists across devices.</span>
+					</div>
+				</div>
+				<div class="app-card">
+					<div class="app-icon"><Icon icon="mdi:tunnel" /></div>
+					<div class="app-info">
+						<span class="app-name">ngrok</span>
+						<span class="app-desc">Expose local ports to the internet. Manage named tunnels securely.</span>
+					</div>
+				</div>
+				<div class="app-card">
+					<div class="app-icon"><Icon icon="mdi:qrcode" /></div>
+					<div class="app-info">
+						<span class="app-name">QR</span>
+						<span class="app-desc">Generate QR codes from any text or URL, push to connected screens.</span>
+					</div>
+				</div>
+				<div class="app-card">
+					<div class="app-icon"><Icon icon="mdi:dns" /></div>
+					<div class="app-info">
+						<span class="app-name">GoDaddy DNS</span>
+						<span class="app-desc">Manage DNS records for any domain — A, CNAME, MX, TXT and more.</span>
+					</div>
+				</div>
+			</div>
+		</section>
 	{/if}
 </div>
 
@@ -212,5 +261,49 @@
 	strong {
 		color: var(--color-text-primary);
 		font-weight: 600;
+	}
+
+	.app-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.app-card {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.875rem 1rem;
+		border: 1px solid var(--color-border);
+		border-radius: 6px;
+		transition: border-color 150ms ease;
+	}
+
+	.app-card:hover {
+		border-color: var(--color-text-primary);
+	}
+
+	.app-icon {
+		font-size: 1.75rem;
+		color: var(--color-text-primary);
+		flex-shrink: 0;
+		width: 2.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.app-name {
+		display: block;
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+
+	.app-desc {
+		display: block;
+		font-size: 0.85rem;
+		color: var(--color-text-secondary);
+		margin-top: 0.15rem;
 	}
 </style>
