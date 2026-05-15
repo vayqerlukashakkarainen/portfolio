@@ -107,7 +107,7 @@ export const projects: Project[] = [
 				{
 					text: 'JustWatch',
 					url: 'https://www.justwatch.com/',
-					icon: 'cbi:justwatch'
+					icon: 'mdi:television-play'
 				}
 			]
 		}
@@ -138,12 +138,12 @@ export const projects: Project[] = [
 			devRes: [
 				{
 					text: 'Microsoft Azure',
-					icon: 'lineicons:azure',
+					icon: 'simple-icons:microsoftazure',
 					url: 'https://azure.microsoft.com/en-us/'
 				},
 				{
 					text: 'C#',
-					icon: 'devicon-plain:csharp',
+					icon: 'simple-icons:csharp',
 					url: 'https://learn.microsoft.com/sv-se/dotnet/csharp/'
 				},
 				{
@@ -153,7 +153,7 @@ export const projects: Project[] = [
 				},
 				{
 					text: 'Swift UI',
-					icon: 'lineicons:swift',
+					icon: 'simple-icons:swift',
 					url: 'https://developer.apple.com/swift/'
 				}
 			],
@@ -186,7 +186,7 @@ export const projects: Project[] = [
 			devRes: [
 				{
 					text: 'PHP',
-					icon: 'ri:php-fill',
+					icon: 'simple-icons:php',
 					url: 'https://www.php.net/'
 				},
 				{
@@ -196,12 +196,12 @@ export const projects: Project[] = [
 				},
 				{
 					text: 'WooCommerce',
-					icon: 'devicon-plain:woocommerce',
+					icon: 'simple-icons:woocommerce',
 					url: 'https://woocommerce.com/'
 				},
 				{
 					text: 'Wordpress',
-					icon: 'ic:baseline-wordpress',
+					icon: 'mdi:wordpress',
 					url: 'https://wordpress.org/'
 				}
 			]
@@ -255,7 +255,7 @@ export const projects: Project[] = [
 			devRes: [
 				{
 					text: 'Svelte',
-					icon: 'ri:svelte-fill',
+					icon: 'simple-icons:svelte',
 					url: 'https://svelte.dev/'
 				}
 			]
@@ -277,12 +277,12 @@ export const projects: Project[] = [
 			devRes: [
 				{
 					text: 'Svelte',
-					icon: 'ri:svelte-fill',
+					icon: 'simple-icons:svelte',
 					url: 'https://svelte.dev/'
 				},
 				{
 					text: 'ThreeJS',
-					icon: 'tabler:brand-threejs',
+					icon: 'simple-icons:threedotjs',
 					url: 'https://threejs.org/'
 				},
 				{
@@ -321,7 +321,7 @@ export const projects: Project[] = [
 				},
 				{
 					text: 'C#',
-					icon: 'devicon-plain:csharp',
+					icon: 'simple-icons:csharp',
 					url: 'https://learn.microsoft.com/sv-se/dotnet/csharp/'
 				}
 			]

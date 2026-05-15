@@ -29,7 +29,7 @@
 		<div class="header">
 			<h3>{project.title}</h3>
 			{#if project.isExternalUrl}
-				<Icon icon="gridicons:external" />
+				<Icon icon="mdi:open-in-new" />
 			{/if}
 		</div>
 		<p>{project.description}</p>

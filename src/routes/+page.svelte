@@ -99,7 +99,7 @@
 	<div class="yay" class:show={allSame}>
 		<p>Nice work! Here is your reward</p>
 		<div>
-			<Icon icon="fxemoji:trophy" />
+			<Icon icon="mdi:trophy" />
 		</div>
 	</div>
 	<footer class="pb-2">

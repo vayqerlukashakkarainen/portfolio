@@ -14,7 +14,7 @@
 
 <div class="page">
 	<a class="back" use:stagger data-stagger href={`${base}/`}>
-		<Icon icon="bxs:left-arrow" /> Back
+		<Icon icon="mdi:arrow-left" /> Back
 	</a>
 
 	<header use:stagger data-stagger>
@@ -79,12 +79,12 @@
 	<footer use:stagger data-stagger>
 		{#if data.website}
 			<a href={data.website} target="_blank">
-				<Icon icon="gridicons:external" /> Visit website
+				<Icon icon="mdi:open-in-new" /> Visit website
 			</a>
 		{/if}
 		{#if data.appUrl}
 			<a href={data.appUrl} target="_blank">
-				<Icon icon="gridicons:external" /> View app
+				<Icon icon="mdi:open-in-new" /> View app
 			</a>
 		{/if}
 	</footer>
