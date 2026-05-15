@@ -44,11 +44,17 @@
 			@Rudholm Technology AB.
 		</p>
 		<a
-			in:fade={{ duration: 200, delay: 160 }}
+			in:fade={{ duration: 200, delay: 120 }}
 			href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
 		>
 			Reach out to me on LinkedIn
 		</a>
+		<div class="lars-banner" in:fade={{ duration: 200, delay: 160 }}>
+			<h2 class="lars-heading">Lars</h2>
+			<p class="lars-sub">An AI agent system I'm building</p>
+			<a class="lars-link" href="/lars">Read more →</a>
+		</div>
+
 		<div class="breakout pt-2">
 			<div in:fade={{ duration: 200, delay: 240 }}>
 				<h2 class="primary">Apps</h2>
@@ -171,6 +177,44 @@
 	}
 	a {
 		color: var(--color-teal-500);
+	}
+
+	.lars-banner {
+		margin-top: 2rem;
+		padding: 2rem;
+		border-radius: 4px;
+		background: var(--color-border);
+		border-left: 4px solid var(--color-teal-500);
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.lars-heading {
+		margin: 0;
+		font-size: 2.25rem;
+		font-weight: 700;
+		color: var(--color-text-primary);
+		letter-spacing: -0.02em;
+	}
+
+	.lars-sub {
+		margin: 0;
+		color: var(--color-text-secondary);
+		font-size: 1rem;
+	}
+
+	.lars-link {
+		display: inline-block;
+		margin-top: 0.5rem;
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--color-teal-500);
+		text-decoration: none;
+	}
+
+	.lars-link:hover {
+		text-decoration: underline;
 	}
 
 	@keyframes rubber-band {
