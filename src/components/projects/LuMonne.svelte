@@ -1,5 +1,5 @@
 <script>
-	import { fade } from 'svelte/transition'
+	import { fade } from 'svelte/transition';
 </script>
 
 <h4 in:fade={{ duration: 200, delay: 0 }}>About</h4>
@@ -9,7 +9,9 @@
 	easy maintenance and administration without my ongoing involvement.
 </p>
 <h4 in:fade={{ duration: 200, delay: 160 }}>Challenges</h4>
-<p in:fade={{ duration: 200, delay: 240 }}>Meeting my partner's standards and expectations, while making sure not to let her down. :)</p>
+<p in:fade={{ duration: 200, delay: 240 }}>
+	Meeting my partner's standards and expectations, while making sure not to let her down. :)
+</p>
 
 <div class="media" in:fade={{ duration: 200, delay: 320 }}>
 	<div class="media-full">

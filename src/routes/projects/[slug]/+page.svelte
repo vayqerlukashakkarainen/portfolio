@@ -17,83 +17,85 @@
 </svelte:head>
 
 <div class="page">
-{#if mounted}
-	<a class="back" in:fade={{ duration: 200, delay: 0 }} href={`${base}/`}>
-		<Icon icon="mdi:arrow-left" /> Back
-	</a>
+	{#if mounted}
+		<div class="sticky-top" in:fade={{ duration: 200, delay: 0 }}>
+			<a class="back" href={`${base}/`}>
+				<Icon icon="mdi:arrow-left" /> Back
+			</a>
 
-	<header in:fade={{ duration: 200, delay: 80 }}>
-		<div class="title-row">
-			<h1>{data.title}</h1>
-			<span class="year">{data.date}</span>
+			<header>
+				<div class="title-row">
+					<h1>{data.title}</h1>
+					<span class="year">{data.date}</span>
+				</div>
+				<hr />
+				{#if data.wip}
+					<span class="in-dev">IN PROGRESS</span>
+				{/if}
+			</header>
 		</div>
-		<hr />
-		{#if data.wip}
-			<span class="in-dev">IN PROGRESS</span>
-		{/if}
-	</header>
 
-	{#if data.pageContent}
-		{#if data.pageContent.appRes || data.pageContent.devRes || data.pageContent.apiRes}
-			<div class="resources" in:fade={{ duration: 200, delay: 160 }}>
-				{#if data.pageContent.appRes}
-					<div class="resource-group">
-						<span class="resource-label">Links</span>
-						<div class="resource-icons">
-							{#each data.pageContent.appRes as res}
-								<a target="_blank" href={res.url} title={res.text}>
-									<Icon icon={res.icon} />
-								</a>
-							{/each}
+		{#if data.pageContent}
+			{#if data.pageContent.appRes || data.pageContent.devRes || data.pageContent.apiRes}
+				<div class="resources" in:fade={{ duration: 200, delay: 160 }}>
+					{#if data.pageContent.appRes}
+						<div class="resource-group">
+							<span class="resource-label">Links</span>
+							<div class="resource-icons">
+								{#each data.pageContent.appRes as res}
+									<a target="_blank" href={res.url} title={res.text}>
+										<Icon icon={res.icon} />
+									</a>
+								{/each}
+							</div>
 						</div>
-					</div>
-				{/if}
-				{#if data.pageContent.devRes}
-					<div class="resource-group">
-						<span class="resource-label">Built with</span>
-						<div class="resource-icons">
-							{#each data.pageContent.devRes as res}
-								<a target="_blank" href={res.url} title={res.text}>
-									<Icon icon={res.icon} />
-								</a>
-							{/each}
+					{/if}
+					{#if data.pageContent.devRes}
+						<div class="resource-group">
+							<span class="resource-label">Built with</span>
+							<div class="resource-icons">
+								{#each data.pageContent.devRes as res}
+									<a target="_blank" href={res.url} title={res.text}>
+										<Icon icon={res.icon} />
+									</a>
+								{/each}
+							</div>
 						</div>
-					</div>
-				{/if}
-				{#if data.pageContent.apiRes}
-					<div class="resource-group">
-						<span class="resource-label">APIs</span>
-						<div class="resource-icons">
-							{#each data.pageContent.apiRes as res}
-								<a target="_blank" href={res.url} title={res.text}>
-									<Icon icon={res.icon} />
-								</a>
-							{/each}
+					{/if}
+					{#if data.pageContent.apiRes}
+						<div class="resource-group">
+							<span class="resource-label">APIs</span>
+							<div class="resource-icons">
+								{#each data.pageContent.apiRes as res}
+									<a target="_blank" href={res.url} title={res.text}>
+										<Icon icon={res.icon} />
+									</a>
+								{/each}
+							</div>
 						</div>
-					</div>
-				{/if}
+					{/if}
+				</div>
+				<hr />
+			{/if}
+
+			<div class="content" in:fade={{ duration: 200, delay: 200 }}>
+				<svelte:component this={data.pageContent.description} />
 			</div>
-			<hr />
 		{/if}
 
-		<div class="content" in:fade={{ duration: 200, delay: 200 }}>
-			<svelte:component this={data.pageContent.description} />
-		</div>
+		<footer in:fade={{ duration: 200, delay: 280 }}>
+			{#if data.website}
+				<a href={data.website} target="_blank">
+					<Icon icon="mdi:open-in-new" /> Visit website
+				</a>
+			{/if}
+			{#if data.appUrl}
+				<a href={data.appUrl} target="_blank">
+					<Icon icon="mdi:open-in-new" /> View app
+				</a>
+			{/if}
+		</footer>
 	{/if}
-
-	<footer in:fade={{ duration: 200, delay: 280 }}>
-		{#if data.website}
-			<a href={data.website} target="_blank">
-				<Icon icon="mdi:open-in-new" /> Visit website
-			</a>
-		{/if}
-		{#if data.appUrl}
-			<a href={data.appUrl} target="_blank">
-				<Icon icon="mdi:open-in-new" /> View app
-			</a>
-		{/if}
-	</footer>
-{/if}
 </div>
 
 <style>
@@ -104,6 +106,17 @@
 		font-family: 'Inter', sans-serif;
 	}
 
+	.sticky-top {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: var(--color-bg);
+		padding-top: 1.5rem;
+		padding-bottom: 0.5rem;
+		margin-bottom: 1rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
 	.back {
 		display: inline-flex;
 		align-items: center;
@@ -111,14 +124,14 @@
 		font-size: 0.85rem;
 		color: var(--color-text-secondary);
 		text-decoration: none;
-		margin-bottom: 2rem;
+		margin-bottom: 0.5rem;
 	}
 	.back:hover {
 		color: var(--color-text-primary);
 	}
 
 	header {
-		margin-bottom: 1.5rem;
+		margin-bottom: 0;
 	}
 
 	.title-row {

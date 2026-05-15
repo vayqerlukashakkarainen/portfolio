@@ -1,15 +1,15 @@
 <script>
-	import { fade } from 'svelte/transition'
+	import { fade } from 'svelte/transition';
 </script>
 
 <h4 in:fade={{ duration: 200, delay: 0 }}>About</h4>
 <div in:fade={{ duration: 200, delay: 80 }}>
 	<p>
-		From the start, I envisioned this as a settlement-building game (I have a soft spot for these). To
-		keep things fresh, I needed a dynamic, randomized environment for every playthrough. While plenty
-		of terrain generators exist in the Unity Asset Store, I wanted something more flexible—one that
-		could handle not just terrain and biomes but additional features as well. Plus, I liked the
-		challenge, so I built my own.
+		From the start, I envisioned this as a settlement-building game (I have a soft spot for these).
+		To keep things fresh, I needed a dynamic, randomized environment for every playthrough. While
+		plenty of terrain generators exist in the Unity Asset Store, I wanted something more
+		flexible—one that could handle not just terrain and biomes but additional features as well.
+		Plus, I liked the challenge, so I built my own.
 	</p>
 	<p>
 		In its current state, the system supports randomized islands, biomes, and various natural

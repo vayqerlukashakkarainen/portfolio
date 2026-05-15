@@ -29,108 +29,108 @@
 </svelte:head>
 
 <div class="container">
-{#if mounted}
-	<div class="me" in:fade={{ duration: 200, delay: 0 }}>
-		<Me />
-		<h1 class="primary">
-			<Dialog
-				text={'<wait=30>Hello!<wait=40> This is<wait=10><speed=20>... <wait=12><speed=7>pretty much <wait=30>my portfolio'}
-			/>
-		</h1>
-	</div>
-	<p in:fade={{ duration: 200, delay: 80 }}>
-		Self-taught software developer based in Sweden's countryside, close to Borås, constantly
-		tinkering on my house and what I find fun software. Currently working as a team leader @Rudholm
-		Technology AB.
-	</p>
-	<a
-		in:fade={{ duration: 200, delay: 160 }}
-		href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
-	>
-		Reach out to me on LinkedIn
-	</a>
-	<div class="breakout pt-2">
-		<div in:fade={{ duration: 200, delay: 240 }}>
-			<h2 class="primary">Apps</h2>
-			<div class="project-grid">
-				{#each appsProjects as project, i}
-					<div in:fade={{ duration: 200, delay: i * 60 }}>
-						<Project {project} />
-					</div>
-				{/each}
+	{#if mounted}
+		<div class="me" in:fade={{ duration: 200, delay: 0 }}>
+			<Me />
+			<h1 class="primary">
+				<Dialog
+					text={'<wait=30>Hello!<wait=40> This is<wait=10><speed=20>... <wait=12><speed=7>pretty much <wait=30>my portfolio'}
+				/>
+			</h1>
+		</div>
+		<p in:fade={{ duration: 200, delay: 80 }}>
+			Self-taught software developer based in Sweden's countryside, close to Borås, constantly
+			tinkering on my house and what I find fun software. Currently working as a team leader
+			@Rudholm Technology AB.
+		</p>
+		<a
+			in:fade={{ duration: 200, delay: 160 }}
+			href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
+		>
+			Reach out to me on LinkedIn
+		</a>
+		<div class="breakout pt-2">
+			<div in:fade={{ duration: 200, delay: 240 }}>
+				<h2 class="primary">Apps</h2>
+				<div class="project-grid">
+					{#each appsProjects as project, i}
+						<div in:fade={{ duration: 200, delay: i * 60 }}>
+							<Project {project} />
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<div in:fade={{ duration: 200, delay: 320 }}>
+				<h2 class="primary">Wacky</h2>
+				<div class="project-grid">
+					{#each wackyProjects as project, i}
+						<div in:fade={{ duration: 200, delay: i * 60 }}>
+							<Project {project} />
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<div in:fade={{ duration: 200, delay: 400 }}>
+				<h2 class="primary">Boring websites</h2>
+				<div class="project-grid">
+					{#each boringProjects as project, i}
+						<div in:fade={{ duration: 200, delay: i * 60 }}>
+							<Project {project} />
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<div in:fade={{ duration: 200, delay: 480 }}>
+				<h2 class="primary">WordPress</h2>
+				<div class="project-grid">
+					{#each wordpressProjects as project, i}
+						<div in:fade={{ duration: 200, delay: i * 60 }}>
+							<Project {project} />
+						</div>
+					{/each}
+				</div>
+			</div>
+
+			<div in:fade={{ duration: 200, delay: 560 }}>
+				<h2 class="primary">Cute pictures of my dog</h2>
+				<div class="project-grid">
+					{#each { length: 3 } as _, i}
+						<div in:fade={{ duration: 200, delay: i * 60 }}>
+							<Image
+								onChange={() => {
+									allSame = allImagesSame();
+								}}
+								{allSame}
+								index={i}
+								image={getRandomImage(i)}
+							/>
+						</div>
+					{/each}
+				</div>
 			</div>
 		</div>
 
-		<div in:fade={{ duration: 200, delay: 320 }}>
-			<h2 class="primary">Wacky</h2>
-			<div class="project-grid">
-				{#each wackyProjects as project, i}
-					<div in:fade={{ duration: 200, delay: i * 60 }}>
-						<Project {project} />
-					</div>
-				{/each}
+		<div class="yay" class:show={allSame}>
+			<p>Nice work! Here is your reward</p>
+			<div>
+				<Icon icon="mdi:trophy" />
 			</div>
 		</div>
-
-		<div in:fade={{ duration: 200, delay: 400 }}>
-			<h2 class="primary">Boring websites</h2>
-			<div class="project-grid">
-				{#each boringProjects as project, i}
-					<div in:fade={{ duration: 200, delay: i * 60 }}>
-						<Project {project} />
-					</div>
-				{/each}
+		<footer class="pb-2">
+			<div class="icons">
+				<a target="_blank" href="https://github.com/vayqerlukashakkarainen"
+					><Icon icon="mdi:github" /></a
+				>
+				<a target="_blank" href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
+					><Icon icon="mdi:linkedin" /></a
+				>
 			</div>
-		</div>
-
-		<div in:fade={{ duration: 200, delay: 480 }}>
-			<h2 class="primary">WordPress</h2>
-			<div class="project-grid">
-				{#each wordpressProjects as project, i}
-					<div in:fade={{ duration: 200, delay: i * 60 }}>
-						<Project {project} />
-					</div>
-				{/each}
-			</div>
-		</div>
-
-		<div in:fade={{ duration: 200, delay: 560 }}>
-			<h2 class="primary">Cute pictures of my dog</h2>
-			<div class="project-grid">
-				{#each { length: 3 } as _, i}
-					<div in:fade={{ duration: 200, delay: i * 60 }}>
-						<Image
-							onChange={() => {
-								allSame = allImagesSame();
-							}}
-							{allSame}
-							index={i}
-							image={getRandomImage(i)}
-						/>
-					</div>
-				{/each}
-			</div>
-		</div>
-	</div>
-
-	<div class="yay" class:show={allSame}>
-		<p>Nice work! Here is your reward</p>
-		<div>
-			<Icon icon="mdi:trophy" />
-		</div>
-	</div>
-	<footer class="pb-2">
-		<div class="icons">
-			<a target="_blank" href="https://github.com/vayqerlukashakkarainen"
-				><Icon icon="mdi:github" /></a
-			>
-			<a target="_blank" href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
-				><Icon icon="mdi:linkedin" /></a
-			>
-		</div>
-		<p>Site made using SvelteKit</p>
-	</footer>
-{/if}
+			<p>Site made using SvelteKit</p>
+		</footer>
+	{/if}
 </div>
 
 <style>

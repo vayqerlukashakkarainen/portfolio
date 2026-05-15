@@ -8,15 +8,36 @@ import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
 const mdiNames = [
-	'arrow-left', 'github', 'linkedin', 'open-in-new', 'trophy',
-	'docker', 'image-edit', 'language-javascript', 'mapbox',
-	'microsoft-xbox-controller', 'television-play', 'unity', 'wordpress'
+	'arrow-left',
+	'github',
+	'linkedin',
+	'open-in-new',
+	'trophy',
+	'docker',
+	'image-edit',
+	'language-javascript',
+	'mapbox',
+	'microsoft-xbox-controller',
+	'television-play',
+	'unity',
+	'wordpress'
 ];
 
 const simpleNames = [
-	'apachecordova', 'blender', 'csharp', 'klarna', 'kotlin',
-	'maplibre', 'microsoftazure', 'openstreetmap', 'php', 'svelte',
-	'swift', 'themoviedatabase', 'threedotjs', 'woocommerce'
+	'apachecordova',
+	'blender',
+	'csharp',
+	'klarna',
+	'kotlin',
+	'maplibre',
+	'microsoftazure',
+	'openstreetmap',
+	'php',
+	'svelte',
+	'swift',
+	'themoviedatabase',
+	'threedotjs',
+	'woocommerce'
 ];
 
 function pickIcons(collection, names) {

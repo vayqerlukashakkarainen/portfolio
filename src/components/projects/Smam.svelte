@@ -1,5 +1,5 @@
 <script>
-	import { fade } from 'svelte/transition'
+	import { fade } from 'svelte/transition';
 </script>
 
 <h4 in:fade={{ duration: 200, delay: 0 }}>About</h4>
@@ -16,12 +16,14 @@
 		Android settings to make the app store-ready.
 	</p>
 	<p>
-		Having never worked with ads before (specifically Google AdMob), seamlessly integrating them into
-		the design without disrupting the user experience was a challenging but insightful process.
+		Having never worked with ads before (specifically Google AdMob), seamlessly integrating them
+		into the design without disrupting the user experience was a challenging but insightful process.
 	</p>
 </div>
 <h4 in:fade={{ duration: 200, delay: 320 }}>What I learned</h4>
-<p in:fade={{ duration: 200, delay: 400 }}>Nothing really, just a fun experience. Not everything has be about learning :)</p>
+<p in:fade={{ duration: 200, delay: 400 }}>
+	Nothing really, just a fun experience. Not everything has be about learning :)
+</p>
 
 <div class="media" in:fade={{ duration: 200, delay: 480 }}>
 	<div class="media-full">

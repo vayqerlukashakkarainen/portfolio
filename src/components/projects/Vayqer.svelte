@@ -1,5 +1,5 @@
 <script>
-	import { fade } from 'svelte/transition'
+	import { fade } from 'svelte/transition';
 </script>
 
 <h4 in:fade={{ duration: 200, delay: 0 }}>About</h4>
