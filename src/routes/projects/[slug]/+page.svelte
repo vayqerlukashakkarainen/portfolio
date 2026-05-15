@@ -1,323 +1,200 @@
 <script lang="ts">
 	import { base } from '$app/paths';
-	import { anyMediaInProject, type Project } from '$lib/project';
+	import { type Project } from '$lib/project';
 	import Icon from '@iconify/svelte';
-	import MasonryGird from '../../../components/MasonryGrid.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data: Project;
-
-	$: hidden = true;
-	const { anyMedia, anyVideo } = anyMediaInProject(data.slug);
-
-	function onScroll(e: UIEvent) {
-		const el = e.currentTarget as HTMLDivElement;
-
-		if (el.scrollTop > 50 && hidden) {
-			hidden = false;
-		} else if (el.scrollTop <= 50 && !hidden) {
-			hidden = true;
-		}
-	}
-
-	function toggleVideos() {
-		const videos = document.querySelectorAll('video');
-
-		videos.forEach((v) => {
-			if (v.paused) {
-				v.play();
-				return;
-			}
-
-			v.pause();
-		});
-	}
 </script>
 
-<div class={`page-theme ${data.category} ${anyMedia ? 'media' : ''}`}>
-	<div class="inner"><MasonryGird slug={data.slug} /></div>
-</div>
-<div class="hidden">
-	<div class="wrapper">
-		<div class={`container outside ${data.category}`} class:c-hidden={hidden}>
-			<div>
-				{#if data.wip}
-					<span class="in-dev">NOT FINISHED</span>
-				{/if}
-				<div class="meta">
-					<h1>{data.title}<span>{data.date}</span></h1>
-				</div>
-			</div>
-		</div>
-		<div class={`container content ${data.category}`} on:scroll={onScroll}>
-			<div>
-				{#if data.wip}
-					<span class="in-dev">NOT FINISHED</span>
-				{/if}
-				<div class="meta">
-					<h1>{data.title}<span>{data.date}</span></h1>
-				</div>
-			</div>
+<svelte:head>
+	<title>{data.title} — Lukas Hakkarainen</title>
+</svelte:head>
 
-			{#if data.pageContent}
-				<div class={`resource-card`}>
-					{#if data.pageContent.appRes}
-						<div class="resources">
-							<h3>Links</h3>
-							<div>
-								{#each data.pageContent.appRes as res}
-									<a target="_blank" href={res.url}>
-										<Icon icon={res.icon} />
-									</a>
-								{/each}
-							</div>
+<div class="page">
+	<a class="back" href={`${base}/`}>
+		<Icon icon="bxs:left-arrow" /> Back
+	</a>
+
+	<header>
+		<div class="title-row">
+			<h1>{data.title}</h1>
+			<span class="year">{data.date}</span>
+		</div>
+		<hr />
+		{#if data.wip}
+			<span class="in-dev">IN PROGRESS</span>
+		{/if}
+	</header>
+
+	{#if data.pageContent}
+		{#if data.pageContent.appRes || data.pageContent.devRes || data.pageContent.apiRes}
+			<div class="resources">
+				{#if data.pageContent.appRes}
+					<div class="resource-group">
+						<span class="resource-label">Links</span>
+						<div class="resource-icons">
+							{#each data.pageContent.appRes as res}
+								<a target="_blank" href={res.url} title={res.text}>
+									<Icon icon={res.icon} />
+								</a>
+							{/each}
 						</div>
-					{/if}
-					{#if data.pageContent.devRes}
-						<div class="resources">
-							<h3>Resources</h3>
-							<div>
-								{#each data.pageContent.devRes as res}
-									<a target="_blank" href={res.url}>
-										<Icon icon={res.icon} />
-									</a>
-								{/each}
-							</div>
-						</div>
-					{/if}
-					{#if data.pageContent.apiRes}
-						<div class="resources">
-							<div>
-								<h3>API</h3>
-								{#each data.pageContent.apiRes as res}
-									<a target="_blank" href={res.url}>
-										<Icon icon={res.icon} />
-									</a>
-								{/each}
-							</div>
-						</div>
-					{/if}
-				</div>
-				<svelte:component this={data.pageContent.description} />
-			{/if}
-			<div class="links footer">
-				<a class="text {data.category}" href={`/${base}`}
-					><Icon icon="bxs:left-arrow" /> <span>Go back</span></a
-				>
-				{#if data.website}
-					<a class="text" href={data.website} target="_blank">
-						<Icon icon="gridicons:external" />
-						<span>Visit website</span></a
-					>
+					</div>
 				{/if}
-				{#if anyMedia}
-					{#if anyVideo}
-						<button class="text" on:click={toggleVideos}>
-							<Icon icon="gridicons:video-camera" />
-							<span>Toggle videos</span></button
-						>
-					{/if}
+				{#if data.pageContent.devRes}
+					<div class="resource-group">
+						<span class="resource-label">Built with</span>
+						<div class="resource-icons">
+							{#each data.pageContent.devRes as res}
+								<a target="_blank" href={res.url} title={res.text}>
+									<Icon icon={res.icon} />
+								</a>
+							{/each}
+						</div>
+					</div>
 				{/if}
-				{#if data.appUrl}
-					<a class="text app" href={data.appUrl} target="_blank">
-						<Icon icon="gridicons:external" />
-						<span>View app</span></a
-					>
+				{#if data.pageContent.apiRes}
+					<div class="resource-group">
+						<span class="resource-label">APIs</span>
+						<div class="resource-icons">
+							{#each data.pageContent.apiRes as res}
+								<a target="_blank" href={res.url} title={res.text}>
+									<Icon icon={res.icon} />
+								</a>
+							{/each}
+						</div>
+					</div>
 				{/if}
 			</div>
+			<hr />
+		{/if}
+
+		<div class="content">
+			<svelte:component this={data.pageContent.description} />
 		</div>
-	</div>
+	{/if}
+
+	<footer>
+		{#if data.website}
+			<a href={data.website} target="_blank">
+				<Icon icon="gridicons:external" /> Visit website
+			</a>
+		{/if}
+		{#if data.appUrl}
+			<a href={data.appUrl} target="_blank">
+				<Icon icon="gridicons:external" /> View app
+			</a>
+		{/if}
+	</footer>
 </div>
 
 <style>
-	.media {
-		--transparent: transparent;
+	.page {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 2rem 1.5rem 4rem;
+		font-family: 'Inter', sans-serif;
 	}
-	.hidden {
-		overflow: hidden;
+
+	.back {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4ch;
+		font-size: 0.85rem;
+		color: var(--color-text-secondary);
+		text-decoration: none;
+		margin-bottom: 2rem;
 	}
-	.meta span {
-		font-size: 14px;
-		padding-left: 8px;
+	.back:hover {
+		color: var(--color-text-primary);
 	}
-	.container.content h1 {
-		margin-top: 0;
-		margin-bottom: -18px;
-		color: var(--color);
+
+	header {
+		margin-bottom: 1.5rem;
 	}
-	.wrapper {
+
+	.title-row {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		margin-bottom: 0.75rem;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: 2rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+	}
+
+	.year {
+		font-size: 0.9rem;
+		color: var(--color-text-secondary);
+	}
+
+	hr {
+		border: none;
+		border-top: 1px solid var(--color-border);
+		margin: 1rem 0;
+	}
+
+	.resources {
+		display: flex;
+		gap: 2rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.resource-group {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		height: 100vh;
-		width: 100%;
-	}
-	.container {
-		padding-top: 22px;
-		padding-bottom: 22px;
-		width: 100%;
-		position: relative;
+		gap: 0.4rem;
 	}
 
-	.container:not(.outside) {
-		animation: in-3 300ms ease;
+	.resource-label {
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--color-text-secondary);
 	}
-	.container.content {
-		background-color: rgba(0, 0, 0, 0.9);
-		max-height: 60%;
-		overflow: auto;
-		position: relative;
-		scrollbar-gutter: stable both-edges;
+
+	.resource-icons {
+		display: flex;
+		gap: 0.75rem;
+		font-size: 1.4rem;
 	}
-	.container.outside {
-		padding: 0;
-		transition:
-			opacity 200ms ease,
-			transform 200ms ease;
-		transform: translateY(0px);
-		color: white;
-	}
-	.container.outside h1 {
-		filter: drop-shadow(2px 4px 6px black);
-		margin-top: 0;
-	}
-	.container.c-hidden {
-		opacity: 0;
-		transform: translateY(12px);
-	}
-	.page-theme {
-		background-color: var(--transparent, var(--color));
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		z-index: -1;
-		animation: in 1s ease;
-		animation-fill-mode: forwards;
-		overflow: hidden;
-	}
-	.footer {
-		position: sticky;
-		bottom: 0;
-	}
-	a {
+
+	.resource-icons a {
+		color: var(--color-text-primary);
 		text-decoration: none;
 	}
-	.text {
-		cursor: pointer;
-		font-family: 'Poppins';
-		border: none;
-		color: white;
+	.resource-icons a:hover {
+		color: var(--color-accent);
+	}
+
+	.content {
+		margin-top: 1.5rem;
+		line-height: 1.75;
+		color: var(--color-text-secondary);
+	}
+
+	footer {
+		margin-top: 3rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--color-border);
+		display: flex;
+		gap: 1.5rem;
+	}
+
+	footer a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4ch;
 		font-size: 0.9rem;
-		font-weight: bold;
-		width: fit-content;
-		display: flex;
-		gap: 4px;
-		align-items: center;
-		background-color: rgb(50 50 50 / 70%);
-		backdrop-filter: blur(1px);
-		padding: 4px 8px;
-		border-radius: 4px;
+		color: var(--color-accent);
+		text-decoration: none;
 	}
-	.text.app {
-		background-color: rgba(135, 114, 33, 0.7);
-	}
-	.text:hover {
-		background-color: rgba(70 70 70 / 70%);
-	}
-
-	.resource-card {
-		display: flex;
-		gap: 4ch;
-		position: relative;
-	}
-	.resource-card::after {
-		content: ' ';
-		position: absolute;
-		inset: -2px;
-		z-index: -1;
-		border-radius: 2ch;
-	}
-
-	.resources *:not(h3) {
-		font-size: 1.4rem;
-		color: white;
-	}
-
-	h3 {
-		margin: 0;
-		font-size: 0.7rem;
-		margin-bottom: 0.2rem;
-		opacity: 0.6;
-		font-weight: normal;
-	}
-
-	.inner {
-		position: relative;
-		animation: in-2 1s ease;
-		animation-fill-mode: forwards;
-		max-width: 300px;
-	}
-
-	.links {
-		display: flex;
-		align-items: center;
-		gap: 4px;
-	}
-
-	@keyframes in-2 {
-		0% {
-			transform: skewX(0deg);
-			left: 30%;
-			opacity: 0;
-		}
-		100% {
-			transform: skewX(5deg);
-			left: 70%;
-			opacity: 1;
-		}
-	}
-	@keyframes in {
-		0% {
-			transform: skewX(0deg);
-			right: 100%;
-		}
-		100% {
-			transform: skewX(-5deg);
-			right: 70%;
-		}
-	}
-	@media (max-width: 768px) {
-		@keyframes in-2 {
-			0% {
-				transform: skewX(0deg);
-				left: 30%;
-				opacity: 0;
-			}
-			100% {
-				transform: skewX(5deg);
-				left: 50%;
-				opacity: 1;
-			}
-		}
-		@keyframes in {
-			0% {
-				transform: skewX(0deg);
-				right: 100%;
-			}
-			100% {
-				transform: skewX(-5deg);
-				right: 50%;
-			}
-		}
-	}
-
-	@keyframes in-3 {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
+	footer a:hover {
+		text-decoration: underline;
 	}
 </style>
