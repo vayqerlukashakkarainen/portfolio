@@ -24,11 +24,8 @@
 			</a>
 
 			<header>
-				<div class="title-row">
-					<h1>{data.title}</h1>
-					<span class="year">{data.date}</span>
-				</div>
-				<hr />
+				<h1>{data.title}</h1>
+				<p class="subtitle">{data.date}</p>
 				{#if data.wip}
 					<span class="in-dev">IN PROGRESS</span>
 				{/if}
@@ -134,25 +131,20 @@
 	}
 
 	header {
-		margin-bottom: 0;
-	}
-
-	.title-row {
-		display: flex;
-		align-items: baseline;
-		gap: 1rem;
-		margin-bottom: 0.75rem;
+		margin-bottom: 2rem;
 	}
 
 	h1 {
-		margin: 0;
-		font-size: 2rem;
-		font-weight: 600;
+		margin: 0 0 0.4rem;
+		font-size: 3rem;
+		font-weight: 700;
 		color: var(--color-text-primary);
+		letter-spacing: -0.02em;
 	}
 
-	.year {
-		font-size: 0.9rem;
+	.subtitle {
+		margin: 0 0 1.5rem;
+		font-size: 1.15rem;
 		color: var(--color-text-secondary);
 	}
 
@@ -175,10 +167,12 @@
 	}
 
 	.resource-label {
-		font-size: 0.7rem;
+		font-size: 0.75rem;
+		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--color-text-secondary);
+		letter-spacing: 0.06em;
+		opacity: 0.6;
+		color: var(--color-text-primary);
 	}
 
 	.resource-icons {
