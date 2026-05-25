@@ -162,7 +162,7 @@
 				I believe agents are the future of desktop work and administration workload. I'm building
 				LARS to help myself and others for the best way to extend these capabilities.
 			</p>
-			<a class="lars-link" href="/lars">Read more →</a>
+			<a class="lars-link" href="{base}/lars">Read more →</a>
 		</div>
 
 		<div class="breakout pt-2">

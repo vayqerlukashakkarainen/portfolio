@@ -1,21 +1,22 @@
 <script>
 	import Icon from '@iconify/svelte';
+	import { base } from '$app/paths';
 </script>
 
 <footer class="container">
 	<nav class="footer-nav breakout">
 		<div class="footer-nav-group">
 			<span class="footer-nav-label">Pages</span>
-			<a href="/#top">Home</a>
-			<a href="/lars">Lars</a>
+			<a href="{base}/#top">Home</a>
+			<a href="{base}/lars">Lars</a>
 		</div>
 		<div class="footer-nav-group">
 			<span class="footer-nav-label">Categories</span>
-			<a href="/#apps">Apps</a>
-			<a href="/#wacky">Wacky</a>
-			<a href="/#boring">Boring websites</a>
-			<a href="/#wordpress">WordPress extensions</a>
-			<a href="/#dog">Cute pictures of my dog</a>
+			<a href="{base}/#apps">Apps</a>
+			<a href="{base}/#wacky">Wacky</a>
+			<a href="{base}/#boring">Boring websites</a>
+			<a href="{base}/#wordpress">WordPress extensions</a>
+			<a href="{base}/#dog">Cute pictures of my dog</a>
 		</div>
 		<div class="footer-nav-group">
 			<span class="footer-nav-label">Social</span>

@@ -2,6 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
+	import { base } from '$app/paths';
 
 	let mounted = false;
 	onMount(() => (mounted = true));
@@ -14,7 +15,7 @@
 
 <div class="page">
 	{#if mounted}
-		<a class="back" href="/" in:fade={{ duration: 200, delay: 0 }}>← Back</a>
+		<a class="back" href="{base}/" in:fade={{ duration: 200, delay: 0 }}>← Back</a>
 
 		<header in:fade={{ duration: 200, delay: 60 }}>
 			<h1>Lars</h1>
