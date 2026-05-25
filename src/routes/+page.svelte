@@ -88,11 +88,20 @@
 		.filter((p) => p.category === 'wordpressExtensions')
 		.sort((a, b) => b.date - a.date);
 
-	type FilterKey = 'all' | 'apps' | 'wacky' | 'boringWebsites' | 'wordpressExtensions' | 'dog' | 'pinned';
+	type FilterKey =
+		| 'all'
+		| 'apps'
+		| 'wacky'
+		| 'boringWebsites'
+		| 'wordpressExtensions'
+		| 'dog'
+		| 'pinned';
 	let activeFilter: FilterKey = 'all';
 
 	$: filters = [
-		...(pinnedSlugs.size > 0 ? [{ key: 'pinned' as FilterKey, label: 'Pinned', icon: 'mdi:pin' }] : []),
+		...(pinnedSlugs.size > 0
+			? [{ key: 'pinned' as FilterKey, label: 'Pinned', icon: 'mdi:pin' }]
+			: []),
 		{ key: 'all' as FilterKey, label: 'All' },
 		{ key: 'apps' as FilterKey, label: 'Apps' },
 		{ key: 'wacky' as FilterKey, label: 'Wacky' },
@@ -143,8 +152,8 @@
 		</div>
 		<p in:fade={{ duration: 200, delay: 80 }}>
 			My name is Lukas and I am a self-taught software developer based in Sweden's countryside,
-			close to Borås, constantly tinkering on my house and what I find fun software. Building LARS
-			and currently working as a team leader @Rudholm Technology AB.
+			constantly tinkering on my house and what I find fun software. Building LARS and currently
+			working as a team leader @Rudholm Technology AB.
 		</p>
 
 		<div class="lars-banner breakout" in:fade={{ duration: 200, delay: 160 }}>
@@ -160,14 +169,14 @@
 			<p>Other projects built by me</p>
 			<div class="filter-bar sticky-fade" in:fade={{ duration: 200, delay: 200 }}>
 				{#each filters as f}
-				<button
-					class="filter-btn"
-					class:active={activeFilter === f.key}
-					on:click={() => setFilter(f.key)}
-				>
-					{#if f.icon}<Icon icon={f.icon} />{/if}
-					{f.label}
-				</button>
+					<button
+						class="filter-btn"
+						class:active={activeFilter === f.key}
+						on:click={() => setFilter(f.key)}
+					>
+						{#if f.icon}<Icon icon={f.icon} />{/if}
+						{f.label}
+					</button>
 				{/each}
 			</div>
 

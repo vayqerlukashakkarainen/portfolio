@@ -482,12 +482,13 @@ export const projects: Project[] = [
 		url: 'projects/',
 		isExternalUrl: false,
 		slug: 'mindmap',
-		website: 'https://mindmap.luhakk.com',
-		appUrl: 'https://mindmap.luhakk.com',
+		bgImg: 'images/mindmap/preview.png',
+		website: 'https://vayqerlukashakkarainen.github.io/mindmap/',
+		appUrl: 'https://vayqerlukashakkarainen.github.io/mindmap/',
 		pageContent: {
 			description: Mindmap,
 			appRes: [
-				{ text: 'Live App', icon: 'mdi:open-in-new', url: 'https://mindmap.luhakk.com' },
+				{ text: 'Live App', icon: 'mdi:open-in-new', url: 'https://vayqerlukashakkarainen.github.io/mindmap/' },
 				{
 					text: 'GitHub',
 					icon: 'mdi:github',
