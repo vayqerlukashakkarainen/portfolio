@@ -2,8 +2,8 @@
 	import Icon from '@iconify/svelte';
 </script>
 
-<footer>
-	<nav class="footer-nav">
+<footer class="container">
+	<nav class="footer-nav breakout">
 		<div class="footer-nav-group">
 			<span class="footer-nav-label">Pages</span>
 			<a href="/#top">Home</a>
@@ -17,25 +17,32 @@
 			<a href="/#wordpress">WordPress extensions</a>
 			<a href="/#dog">Cute pictures of my dog</a>
 		</div>
-	</nav>
-	<div class="footer-bottom">
-		<div class="icons">
-			<a target="_blank" href="https://github.com/vayqerlukashakkarainen"
-				><Icon icon="mdi:github" /></a
-			>
-			<a target="_blank" href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
-				><Icon icon="mdi:linkedin" /></a
-			>
+		<div class="footer-nav-group">
+			<span class="footer-nav-label">Social</span>
+			<div class="icons">
+				<a target="_blank" href="https://github.com/vayqerlukashakkarainen"
+					><Icon icon="mdi:github" /></a
+				>
+				<a target="_blank" href="https://www.linkedin.com/in/lukas-hakkarainen-841254120/"
+					><Icon icon="mdi:linkedin" /></a
+				>
+			</div>
 		</div>
-		<p>Site made using SvelteKit</p>
-	</div>
+	</nav>
 </footer>
 
 <style>
 	footer {
-		max-width: 720px;
 		margin: 0 auto;
 		padding: 0 1.5rem 2rem;
+	}
+
+	a {
+		font-family: none;
+	}
+
+	span {
+		font-family: 'Inter', sans-serif;
 	}
 
 	.footer-nav {
@@ -63,27 +70,12 @@
 	}
 
 	.footer-nav a {
-		font-size: 0.875rem;
 		color: var(--color-text-secondary);
 		text-decoration: none;
 	}
 
 	.footer-nav a:hover {
 		color: var(--color-text-primary);
-	}
-
-	.footer-bottom {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		padding-top: 1rem;
-		border-top: 1px solid var(--color-border);
-	}
-
-	.footer-bottom p {
-		margin: 0;
-		font-size: 0.8rem;
-		color: var(--color-text-secondary);
 	}
 
 	.icons {

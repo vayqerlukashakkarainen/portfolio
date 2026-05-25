@@ -38,18 +38,6 @@
 		border: 1px solid var(--color-border);
 		background: var(--color-border);
 	}
-
-	.item.clickable {
-		cursor: zoom-in;
-		transition:
-			border-color 150ms ease,
-			box-shadow 150ms ease;
-	}
-	.item.clickable:hover {
-		border-color: var(--color-text-primary);
-		box-shadow: 2px 2px 0 var(--color-text-primary);
-	}
-
 	img,
 	video {
 		width: 100%;

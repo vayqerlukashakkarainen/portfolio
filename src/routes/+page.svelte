@@ -1,18 +1,84 @@
-<script>
+<script lang="ts">
 	import { projects } from '$lib/project';
-	import { allImagesSame, getRandomImage } from '$lib/images';
+	import { getRandomImage } from '$lib/images';
 	import Icon from '@iconify/svelte';
 	import Project from '../components/Project.svelte';
-	import Image from '../components/Image.svelte';
 	import Me from '../components/Me.svelte';
 	import Dialog from '../components/Dialog.svelte';
+	import { masonry } from '$lib/masonry';
 	import { fade } from 'svelte/transition';
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
+	import { base } from '$app/paths';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
+
+	const SCROLL_KEY = 'index-scroll';
+
+	beforeNavigate(() => {
+		sessionStorage.setItem(SCROLL_KEY, String(window.scrollY));
+	});
+
+	afterNavigate(({ from }) => {
+		if (from?.url.pathname.startsWith('/projects')) {
+			pendingScrollRestore = parseInt(sessionStorage.getItem(SCROLL_KEY) ?? '0');
+		}
+	});
+
+	let pendingScrollRestore = 0;
+
+	function onGridReady() {
+		if (pendingScrollRestore > 0) {
+			window.scrollTo({ top: pendingScrollRestore, behavior: 'instant' });
+			pendingScrollRestore = 0;
+		}
+	}
+
+	function scaleOut(node: HTMLElement) {
+		return {
+			duration: 150,
+			css: (t: number) => `opacity: ${t}; transform: scale(${0.85 + 0.15 * t})`
+		};
+	}
+
+	const PINS_KEY = 'pinned-projects';
+
+	let pinnedSlugs = new Set<string>();
+
+	function loadPins(): Set<string> {
+		try {
+			return new Set(JSON.parse(localStorage.getItem(PINS_KEY) ?? '[]'));
+		} catch {
+			return new Set();
+		}
+	}
+
+	function savePins() {
+		localStorage.setItem(PINS_KEY, JSON.stringify([...pinnedSlugs]));
+	}
+
+	function togglePin(slug: string) {
+		if (pinnedSlugs.has(slug)) {
+			pinnedSlugs.delete(slug);
+		} else {
+			pinnedSlugs.add(slug);
+		}
+		pinnedSlugs = new Set(pinnedSlugs);
+		savePins();
+		if (pinnedSlugs.size === 0 && activeFilter === 'pinned') {
+			setFilter('all');
+		}
+	}
 
 	let mounted = false;
-	onMount(() => (mounted = true));
+	let innerWidth = 0;
+	let gridEl: HTMLElement;
+	onMount(() => {
+		pinnedSlugs = loadPins();
+		activeFilter = pinnedSlugs.size > 0 ? 'pinned' : 'all';
+		mounted = true;
+	});
 
-	$: allSame = false;
+	$: masonryColumns = innerWidth <= 600 ? 1 : innerWidth <= 860 ? 2 : 3;
+
 	$: appsProjects = projects.filter((p) => p.category === 'apps').sort((a, b) => b.date - a.date);
 	$: wackyProjects = projects.filter((p) => p.category === 'wacky').sort((a, b) => b.date - a.date);
 	$: boringProjects = projects
@@ -21,7 +87,47 @@
 	$: wordpressProjects = projects
 		.filter((p) => p.category === 'wordpressExtensions')
 		.sort((a, b) => b.date - a.date);
+
+	type FilterKey = 'all' | 'apps' | 'wacky' | 'boringWebsites' | 'wordpressExtensions' | 'dog' | 'pinned';
+	let activeFilter: FilterKey = 'all';
+
+	$: filters = [
+		...(pinnedSlugs.size > 0 ? [{ key: 'pinned' as FilterKey, label: 'Pinned', icon: 'mdi:pin' }] : []),
+		{ key: 'all' as FilterKey, label: 'All' },
+		{ key: 'apps' as FilterKey, label: 'Apps' },
+		{ key: 'wacky' as FilterKey, label: 'Wacky' },
+		{ key: 'boringWebsites' as FilterKey, label: 'Boring sites' },
+		{ key: 'wordpressExtensions' as FilterKey, label: 'WordPress' },
+		{ key: 'dog' as FilterKey, label: 'Dog' }
+	];
+
+	$: allProjects = [
+		...appsProjects,
+		...wackyProjects,
+		...boringProjects,
+		...wordpressProjects
+	].sort((a, b) => b.date - a.date);
+
+	$: filteredProjects =
+		activeFilter === 'all'
+			? allProjects
+			: activeFilter === 'dog'
+				? []
+				: activeFilter === 'pinned'
+					? allProjects.filter((p) => pinnedSlugs.has(p.slug))
+					: projects.filter((p) => p.category === activeFilter).sort((a, b) => b.date - a.date);
+
+	$: showDog = activeFilter === 'all' || activeFilter === 'dog';
+
+	async function setFilter(key: FilterKey) {
+		if (gridEl) gridEl.dispatchEvent(new CustomEvent('masonry:snapshot'));
+		activeFilter = key;
+		await tick();
+		if (gridEl) gridEl.dispatchEvent(new CustomEvent('masonry:shuffle'));
+	}
 </script>
+
+<svelte:window bind:innerWidth />
 
 <svelte:head>
 	<meta property="og:title" content="Hey! - Lukas Hakkarainen" />
@@ -31,114 +137,64 @@
 <div id="top" class="container">
 	{#if mounted}
 		<div class="me" in:fade={{ duration: 200, delay: 0 }}>
-			<Me />
 			<h1 class="primary">
-				<Dialog
-					text={'<wait=30>Hello!<wait=40> This is<wait=10><speed=20>... <wait=12><speed=7>pretty much <wait=30>my portfolio'}
-				/>
+				<Dialog text={'Father<wait=30>, carpenter hobbyist<wait=30> and engineer'} />
 			</h1>
 		</div>
 		<p in:fade={{ duration: 200, delay: 80 }}>
-			Self-taught software developer based in Sweden's countryside, close to Borås, constantly
-			tinkering on my house and what I find fun software. Building Lars and currently working as a
-			team leader @Rudholm Technology AB.
+			My name is Lukas and I am a self-taught software developer based in Sweden's countryside,
+			close to Borås, constantly tinkering on my house and what I find fun software. Building LARS
+			and currently working as a team leader @Rudholm Technology AB.
 		</p>
 
-		<div class="lars-banner" in:fade={{ duration: 200, delay: 160 }}>
-			<h2 class="lars-heading">Lars</h2>
-			<p class="lars-sub">An AI agent system I'm building</p>
+		<div class="lars-banner breakout" in:fade={{ duration: 200, delay: 160 }}>
+			<h2 class="lars-heading">LARS artificial intelligence</h2>
+			<p class="lars-sub">
+				I believe agents are the future of desktop work and administration workload. I'm building
+				LARS to help myself and others for the best way to extend these capabilities.
+			</p>
 			<a class="lars-link" href="/lars">Read more →</a>
 		</div>
 
 		<div class="breakout pt-2">
-			<div id="apps" in:fade={{ duration: 200, delay: 240 }}>
-				<header class="category-header">
-					<h2>Apps</h2>
-					<p class="category-desc">Things you can actually use! Web apps, tools, and experiments</p>
-				</header>
-				<div class="project-grid">
-					{#each appsProjects as project, i}
-						<div in:fade={{ duration: 200, delay: i * 60 }}>
-							<Project {project} />
-						</div>
-					{/each}
-				</div>
+			<p>Other projects built by me</p>
+			<div class="filter-bar sticky-fade" in:fade={{ duration: 200, delay: 200 }}>
+				{#each filters as f}
+				<button
+					class="filter-btn"
+					class:active={activeFilter === f.key}
+					on:click={() => setFilter(f.key)}
+				>
+					{#if f.icon}<Icon icon={f.icon} />{/if}
+					{f.label}
+				</button>
+				{/each}
 			</div>
 
-			<div id="wacky" in:fade={{ duration: 200, delay: 320 }}>
-				<header class="category-header">
-					<h2>Wacky</h2>
-					<p class="category-desc">
-						Odd ideas, creative hacks, and projects built mostly for the fun of it
-					</p>
-				</header>
-				<div class="project-grid">
-					{#each wackyProjects as project, i}
-						<div in:fade={{ duration: 200, delay: i * 60 }}>
-							<Project {project} />
-						</div>
-					{/each}
-				</div>
-			</div>
+			<div
+				class="project-grid"
+				bind:this={gridEl}
+				use:masonry={{ columns: masonryColumns, gap: 12, onReady: onGridReady }}
+			>
+				{#each filteredProjects as project, i (project.slug)}
+					<div out:scaleOut>
+						<Project
+							{project}
+							pinned={pinnedSlugs.has(project.slug)}
+							onPin={() => togglePin(project.slug)}
+						/>
+					</div>
+				{/each}
 
-			<div id="boring" in:fade={{ duration: 200, delay: 400 }}>
-				<header class="category-header">
-					<h2>Boring websites</h2>
-					<p class="category-desc">Clean, functional sites</p>
-				</header>
-				<div class="project-grid">
-					{#each boringProjects as project, i}
-						<div in:fade={{ duration: 200, delay: i * 60 }}>
-							<Project {project} />
-						</div>
-					{/each}
-				</div>
-			</div>
-
-			<div id="wordpress" in:fade={{ duration: 200, delay: 480 }}>
-				<header class="category-header">
-					<h2>WordPress extensions</h2>
-					<p class="category-desc">Custom blocks and plugins built on top of WordPress</p>
-				</header>
-				<div class="project-grid">
-					{#each wordpressProjects as project, i}
-						<div in:fade={{ duration: 200, delay: i * 60 }}>
-							<Project {project} />
-						</div>
-					{/each}
-				</div>
-			</div>
-
-			<div id="dog" in:fade={{ duration: 200, delay: 560 }}>
-				<header class="category-header">
-					<h2>Cute pictures of my dog</h2>
-					<p class="category-desc">Exactly what it says</p>
-				</header>
-				<hr />
-				<div class="project-grid">
+				{#if showDog}
 					{#each { length: 3 } as _, i}
-						<div in:fade={{ duration: 200, delay: i * 60 }}>
-							<Image
-								onChange={() => {
-									allSame = allImagesSame();
-								}}
-								{allSame}
-								index={i}
-								image={getRandomImage(i)}
-							/>
+						<div out:scaleOut>
+							<img class="dog-img" alt="My dog" src={`${base}/images/${getRandomImage(i).url}`} />
 						</div>
 					{/each}
-				</div>
+				{/if}
 			</div>
 		</div>
-
-		<div class="yay" class:show={allSame}>
-			<p>Nice work! Here is your reward</p>
-			<div>
-				<Icon icon="mdi:trophy" />
-			</div>
-		</div>
-
 	{/if}
 </div>
 
@@ -155,61 +211,61 @@
 		font-size: calc(1vw + 42px);
 		height: 160px;
 	}
-	.yay {
-		opacity: 0;
-		transform: translateY(0px);
-		transition: all 300ms ease;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 6px;
-	}
-	.yay.show {
-		opacity: 1;
-		transform: translateY(12px);
-	}
-	.yay p {
-		margin: 0;
-	}
-	.yay.show > div {
-		animation: rubber-band 1.3s linear;
-		animation-delay: 300ms;
+	.dog-img {
+		width: 100%;
+		display: block;
+		border: 1px solid var(--color-border);
 	}
 	a {
 		color: var(--color-teal-500);
 	}
 
-	.category-header {
-		margin-bottom: 1rem;
+	.filter-bar {
+		display: flex;
+		gap: 0.4rem;
+		flex-wrap: wrap;
+		margin-bottom: 2rem;
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background: var(--color-bg);
+		padding: 0.75rem 0;
+		margin-top: -0.75rem;
 	}
 
-	.category-header h2 {
-		margin: 0 0 0.4rem;
-		font-size: 2rem;
-		font-weight: 600;
+	.filter-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35ch;
+		background: none;
+		border: 1px solid var(--color-border);
+		padding: 0.3rem 0.85rem;
+		font-size: 0.8rem;
+		font-family: inherit;
+		color: var(--color-text-secondary);
+		cursor: pointer;
+		border-radius: 2px;
+		transition:
+			border-color 150ms ease,
+			color 150ms ease,
+			background 150ms ease;
+	}
+
+	.filter-btn:hover {
+		border-color: var(--color-text-primary);
 		color: var(--color-text-primary);
 	}
 
-	.category-desc {
-		margin: 0;
-		font-size: 0.9rem;
-		color: var(--color-text-secondary);
-	}
-
-	hr {
-		border: none;
-		border-top: 1px solid var(--color-border);
-		margin: 0 0 1.5rem;
-	}
-
-	.breakout > div + div .category-header {
-		margin-top: 3rem;
+	.filter-btn.active {
+		background: var(--color-text-primary);
+		border-color: var(--color-text-primary);
+		color: var(--color-bg);
 	}
 
 	.lars-banner {
 		margin-top: 2rem;
 		padding: 2rem;
-		border-radius: 4px;
+		border-left: 2px solid black;
 		background: rgb(240, 240, 240);
 		display: flex;
 		flex-direction: column;
@@ -237,45 +293,10 @@
 		font-weight: 600;
 		color: var(--color-teal-500);
 		text-decoration: none;
+		font-family: inherit;
 	}
 
 	.lars-link:hover {
 		text-decoration: underline;
-	}
-	@keyframes rubber-band {
-		0% {
-			-webkit-transform: scale3d(1, 1, 1);
-			transform: scale3d(1, 1, 1);
-		}
-
-		30% {
-			-webkit-transform: scale3d(1.25, 0.75, 1);
-			transform: scale3d(1.25, 0.75, 1);
-		}
-
-		40% {
-			-webkit-transform: scale3d(0.75, 1.25, 1);
-			transform: scale3d(0.75, 1.25, 1);
-		}
-
-		50% {
-			-webkit-transform: scale3d(1.15, 0.85, 1);
-			transform: scale3d(1.15, 0.85, 1);
-		}
-
-		65% {
-			-webkit-transform: scale3d(0.95, 1.05, 1);
-			transform: scale3d(0.95, 1.05, 1);
-		}
-
-		75% {
-			-webkit-transform: scale3d(1.05, 0.95, 1);
-			transform: scale3d(1.05, 0.95, 1);
-		}
-
-		100% {
-			-webkit-transform: scale3d(1, 1, 1);
-			transform: scale3d(1, 1, 1);
-		}
 	}
 </style>

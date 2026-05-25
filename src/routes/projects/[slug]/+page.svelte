@@ -10,6 +10,14 @@
 	/** @type {import('./$types').PageData} */
 	export let data: Project;
 
+	const categoryColors: Record<string, string> = {
+		apps: '#2563eb',
+		wacky: '#f59e0b',
+		boringWebsites: '#6b7280',
+		wordpressExtensions: '#3b82f6'
+	}
+	$: categoryColor = categoryColors[data.category] ?? '#0f0f0f'
+
 	let mounted = false;
 	onMount(() => (mounted = true));
 
@@ -42,12 +50,12 @@
 			/>
 		{/if}
 
-		<div class="sticky-top" in:fade={{ duration: 200, delay: 0 }}>
+		<div class="sticky-top sticky-fade" in:fade={{ duration: 200, delay: 0 }}>
 			<a class="back" href={`${base}/`}>
 				<Icon icon="mdi:arrow-left" /> Back
 			</a>
 
-			<header>
+			<header style="border-left: 2px solid {categoryColor}; padding-left: 22px;">
 				<h1>{data.title}</h1>
 				<p class="subtitle">{data.date}</p>
 				{#if data.wip}
@@ -129,7 +137,6 @@
 		max-width: 720px;
 		margin: 0 auto;
 		padding: 2rem 1.5rem 4rem;
-		font-family: 'Inter', sans-serif;
 	}
 
 	.sticky-top {

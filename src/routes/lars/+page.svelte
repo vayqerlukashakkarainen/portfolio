@@ -18,7 +18,9 @@
 
 		<header in:fade={{ duration: 200, delay: 60 }}>
 			<h1>Lars</h1>
-			<p class="subtitle">An AI agent system built around one idea: extend the person, not replace them.</p>
+			<p class="subtitle">
+				An AI agent system built around one idea: extend the person, not replace them.
+			</p>
 		</header>
 
 		<section in:fade={{ duration: 200, delay: 120 }}>
@@ -47,8 +49,8 @@
 			<p>
 				Lars is industry-agnostic at its core. It isn't tied to one vertical — it can become Henry,
 				a specialised agent for the garment industry, with apps only accessible to Henry and its
-				industry, skills built specifically for that domain. Or it can be something else entirely for
-				someone else.
+				industry, skills built specifically for that domain. Or it can be something else entirely
+				for someone else.
 			</p>
 			<p>
 				The important thing is that domains stay isolated. You can talk to Lars and Henry, but they
@@ -83,8 +85,8 @@
 				I'm also building support for Mentra smart glasses via MetraOS open source software. Instead
 				of walking around with your phone taking pictures, Lars connects directly through the
 				glasses. It can pull device info, photos, video — anything the glasses can capture. And of
-				course speak, since Mentra comes with built-in speakers and a mic. Lars can see what you
-				see and hear what you hear.
+				course speak, since Mentra comes with built-in speakers and a mic. Lars can see what you see
+				and hear what you hear.
 			</p>
 		</section>
 
@@ -106,28 +108,28 @@
 			<h2>Architecture</h2>
 			<ul>
 				<li>
-					<strong>AI core harness system</strong> — the runtime where Lars operates: manages agent
-					sessions, tools, memory, and lifecycle
+					<strong>AI core harness system</strong> — the runtime where Lars operates: manages agent sessions,
+					tools, memory, and lifecycle
 				</li>
 				<li>
-					<strong>Application proxy</strong> — actions are performed by Lars here, with secrets
-					securely stored and never exposed to the agent
+					<strong>Application proxy</strong> — actions are performed by Lars here, with secrets securely
+					stored and never exposed to the agent
 				</li>
 				<li>
-					<strong>Agent app store</strong> — an installable app ecosystem targeted specifically for
-					agents, not end users
+					<strong>Agent app store</strong> — an installable app ecosystem targeted specifically for agents,
+					not end users
 				</li>
 				<li>
-					<strong>Mobile application</strong> — have Lars with you at all times, with Bluetooth,
-					speakers, and device awareness
+					<strong>Mobile application</strong> — have Lars with you at all times, with Bluetooth, speakers,
+					and device awareness
 				</li>
 				<li>
-					<strong>Smart glasses connection</strong> — Mentra integration via MetraOS lets Lars see
-					what you see and hear what you hear
+					<strong>Smart glasses connection</strong> — Mentra integration via MetraOS lets Lars see what
+					you see and hear what you hear
 				</li>
 				<li>
-					<strong>Conversational models</strong> — Lars can speak through its thinking process, not
-					just respond in text
+					<strong>Conversational models</strong> — Lars can speak through its thinking process, not just
+					respond in text
 				</li>
 			</ul>
 		</section>
@@ -139,42 +141,54 @@
 					<div class="app-icon"><Icon icon="mdi:github" /></div>
 					<div class="app-info">
 						<span class="app-name">GitHub</span>
-						<span class="app-desc">Interact with repos, PRs, and issues. Review code, reply to comments, manage labels.</span>
+						<span class="app-desc"
+							>Interact with repos, PRs, and issues. Review code, reply to comments, manage labels.</span
+						>
 					</div>
 				</div>
 				<div class="app-card">
 					<div class="app-icon"><Icon icon="mdi:connection" /></div>
 					<div class="app-info">
 						<span class="app-name">MCP</span>
-						<span class="app-desc">Connect to any Model Context Protocol server and call its tools.</span>
+						<span class="app-desc"
+							>Connect to any Model Context Protocol server and call its tools.</span
+						>
 					</div>
 				</div>
 				<div class="app-card">
 					<div class="app-icon"><Icon icon="mdi:spotify" /></div>
 					<div class="app-info">
 						<span class="app-name">Spotify</span>
-						<span class="app-desc">Control playback, search tracks, manage playlists across devices.</span>
+						<span class="app-desc"
+							>Control playback, search tracks, manage playlists across devices.</span
+						>
 					</div>
 				</div>
 				<div class="app-card">
 					<div class="app-icon"><Icon icon="mdi:tunnel" /></div>
 					<div class="app-info">
 						<span class="app-name">ngrok</span>
-						<span class="app-desc">Expose local ports to the internet. Manage named tunnels securely.</span>
+						<span class="app-desc"
+							>Expose local ports to the internet. Manage named tunnels securely.</span
+						>
 					</div>
 				</div>
 				<div class="app-card">
 					<div class="app-icon"><Icon icon="mdi:qrcode" /></div>
 					<div class="app-info">
 						<span class="app-name">QR</span>
-						<span class="app-desc">Generate QR codes from any text or URL, push to connected screens.</span>
+						<span class="app-desc"
+							>Generate QR codes from any text or URL, push to connected screens.</span
+						>
 					</div>
 				</div>
 				<div class="app-card">
 					<div class="app-icon"><Icon icon="mdi:dns" /></div>
 					<div class="app-info">
 						<span class="app-name">GoDaddy DNS</span>
-						<span class="app-desc">Manage DNS records for any domain — A, CNAME, MX, TXT and more.</span>
+						<span class="app-desc"
+							>Manage DNS records for any domain — A, CNAME, MX, TXT and more.</span
+						>
 					</div>
 				</div>
 			</div>
@@ -187,7 +201,6 @@
 		max-width: 720px;
 		margin: 0 auto;
 		padding: 2rem 1.5rem 6rem;
-		font-family: 'Inter', sans-serif;
 	}
 
 	.back {
