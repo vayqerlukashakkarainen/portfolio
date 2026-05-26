@@ -218,7 +218,9 @@
 	}
 	.me h1 {
 		font-size: calc(1vw + 42px);
-		height: 160px;
+		height: calc(260px - 5vw);
+		min-height: 160px;
+		max-height: 200px;
 	}
 	.dog-img {
 		width: 100%;
